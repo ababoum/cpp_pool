@@ -6,13 +6,13 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:10:26 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/15 13:18:21 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/15 17:40:10 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void) : cursor(0), size(0)
+PhoneBook::PhoneBook(void) : _cursor(0), _size(0)
 {
 	std::cout << "A new phonebook is created." << std::endl;
 	return ;
@@ -43,20 +43,22 @@ void	PhoneBook::add(void)
 	std::cout << "Darkest secret:" << std::endl;
 	std::cin >> darkest_secret;
 
-	this->contact_list[this->cursor].first_name = first_name;
-	this->contact_list[this->cursor].last_name = last_name;
-	this->contact_list[this->cursor].nickname = nickname;
-	this->contact_list[this->cursor].phone_number = phone_number;
-	this->contact_list[this->cursor].darkest_secret = darkest_secret;
+	this->contact_list[this->_cursor]._first_name = first_name;
+	this->contact_list[this->_cursor]._last_name = last_name;
+	this->contact_list[this->_cursor]._nickname = nickname;
+	this->contact_list[this->_cursor]._phone_number = phone_number;
+	this->contact_list[this->_cursor]._darkest_secret = darkest_secret;
 
-	this->cursor = this->cursor + 1 % 8;
-	if (this->size < 8)
-		this->size++;
+	std::cout << "Contact added in the slot " << this->_cursor << "." << std::endl;
+	
+	this->_cursor = (this->_cursor + 1) % 8;
+	if (this->_size < 8)
+		this->_size++;
 	
 	return ;
 }
 
-void	PhoneBook::display(int index, Contact item)
+void	PhoneBook::_display(int index, Contact item) const
 {
 		std::cout << "         " << index << "|";
 
@@ -93,17 +95,17 @@ void	PhoneBook::display(int index, Contact item)
 		return ;
 }
 
-void	PhoneBook::search(void)
+void	PhoneBook::search(void) const
 {
 	int	index;
 
 	std::cout << "Enter the index of the contact to display:" << std::endl;
 	std::cin >> index;
-	if (index < 0 || index > this->size - 1)
+	if (index < 0 || index > this->_size - 1)
 		std::cout << "Invalid index." << std::endl;
 	else
 	{
-		this->display(index, this->contact_list[index]);
+		this->_display(index, this->contact_list[index]);
 	}
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:08:29 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/15 13:17:11 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/15 15:02:45 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int main(void)
 	PhoneBook phonebook;
 	
 	std::cout << "Welcome to Phonebook!" << std::endl;
-	std::cout << "Please enter one of the following commands: ADD, SEARCH, EXIT" << std::endl;
 
 	while (1)
 	{
 		std::string input;
 		
+		std::cout << "\033[0;32mPlease enter one of the following commands: ADD, SEARCH, EXIT\e[0m" << std::endl;
 		std::cin >> input;
 		if (input.compare("ADD") && input.compare("SEARCH") && input.compare("EXIT"))
 		{
@@ -37,6 +37,6 @@ int main(void)
 		if (!input.compare("SEARCH"))
 			phonebook.search();
 		if (!input.compare("EXIT"))
-			exit(0);
+			return (0);
 	}
 }

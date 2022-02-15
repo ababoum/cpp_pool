@@ -2,13 +2,12 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 
-NAME 		= phonebook
+NAME 		= accounts_tests
 
-SRCS		= ./main.cpp \
-				./PhoneBook.cpp
+SRCS		= ./tests.cpp \
+				./Account.cpp
 
-INCL		= ./PhoneBook.hpp \
-				./Contact.hpp
+INCL		= ./Account.hpp 
 
 OBJS		= $(SRCS:.cpp=.o)
 
@@ -16,7 +15,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS) $(INCL)
 			$(CXX) $(CFLAGS) $(SRCS) -o $(NAME)
-			@echo "\033[1;32m Phonebook executable is compiled and ready.\e[0m"
+			@echo "\033[1;32m Account tests executable is compiled and ready.\e[0m"
 
 clean:		
 			@rm -f $(OBJS)
@@ -24,7 +23,7 @@ clean:
 
 fclean: 	clean
 			@rm -f  ${OBJS} $(NAME)
-			@echo "\033[1;36m Phonebook executable successfully deleted.\e[0m"
+			@echo "\033[1;36m Account tests executable successfully deleted.\e[0m"
 
 re: fclean ${NAME}
 
