@@ -4,7 +4,8 @@ CFLAGS		= -Wall -Werror -Wextra -std=c++98
 
 NAME 		= phonebook
 
-SRCS		= ./main.cpp
+SRCS		= ./main.cpp \
+				./PhoneBook.cpp
 
 INCL		= ./PhoneBook.hpp \
 				./Contact.hpp
