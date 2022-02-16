@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:55:30 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/16 17:16:47 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:40:46 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	Zombie::setName(std::string name)
 	std::cout << "The zombie is called " << this->_name << "." << std::endl;
 }
 
-std::string	Zombie::getName(void)
+std::string	Zombie::getName(void) const
 {
 	return this->_name;
 }

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 12:55:46 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/16 17:40:32 by mababou          ###   ########.fr       */
+/*   Created: 2022/02/16 17:54:17 by mababou           #+#    #+#             */
+/*   Updated: 2022/02/16 18:54:32 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Weapon.hpp"
 
-#include <iostream>
+Weapon::Weapon(std::string type)
+{
+	this->_type = new std::string(type);
+	return ;
+}
 
-class Zombie {
-	
-public:
+Weapon::~Weapon(void)
+{
+	return ;
+}
 
-	Zombie(void);
-	~Zombie(void);
+void	Weapon::setType(std::string type)
+{
+	delete this->_type;
+	this->_type = new std::string(type);
+}
 
-	void		announce(void);
-	void		setName(std::string name);
-	std::string	getName(void) const;
-	
-private:
-
-	std::string	_name;
-};
-
-Zombie* zombieHorde(int N, std::string name);
-
-#endif
+std::string	*Weapon::getType(void) const
+{
+	return this->_type;
+}

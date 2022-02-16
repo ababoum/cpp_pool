@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:55:46 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/16 17:20:30 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:40:42 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 
 	void		announce(void);
 	void		setName(std::string name);
-	std::string	getName(void);
+	std::string	getName(void) const;
 	
 private:
 
