@@ -2,12 +2,14 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= accounts_tests
+NAME 		= zombie
 
-SRCS		= ./tests.cpp \
-				./Account.cpp
+SRCS		= ./main.cpp \
+				./randomChump.cpp \
+				./Zombie.cpp \
+				./newZombie.cpp \
 
-INCL		= ./Account.hpp 
+INCL		= ./Zombie.hpp 
 
 OBJS		= $(SRCS:.cpp=.o)
 
@@ -15,7 +17,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS) $(INCL)
 			$(CXX) $(CFLAGS) $(SRCS) -o $(NAME)
-			@echo "\033[1;32m Account tests executable is compiled and ready.\e[0m"
+			@echo "\033[1;32m Zombie executable is compiled and ready.\e[0m"
 
 clean:		
 			@rm -f $(OBJS)
@@ -23,7 +25,7 @@ clean:
 
 fclean: 	clean
 			@rm -f  ${OBJS} $(NAME)
-			@echo "\033[1;36m Account tests executable successfully deleted.\e[0m"
+			@echo "\033[1;36m Zombie executable successfully deleted.\e[0m"
 
 re: fclean ${NAME}
 
