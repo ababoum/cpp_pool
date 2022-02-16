@@ -6,30 +6,32 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 16:06:59 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/16 17:20:26 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:28:36 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
 int main(void)
 {
-	Zombie *Zomb1 = newZombie("Zomb1");
-	Zombie *Zomb2 = newZombie("Zomb2");
 
-	randomChump("Rand1");
-	randomChump("Rand2");
+	std::string item = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &item;
+	std::string	&stringREF = item;
 
-	Zomb1->announce();
-	Zomb1->announce();
-	Zomb1->announce();
-	Zomb1->announce();
-	Zomb2->announce();
-	Zomb2->announce();
-	Zomb2->announce();
+	std::cout << "----------------------" << std::endl;
 
-	delete Zomb1;
-	delete Zomb2;
+	std::cout << &item << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+	
+	std::cout << "----------------------" << std::endl;
 
+	std::cout << item << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
+	
+	std::cout << "----------------------" << std::endl;
+	
 	return (0);	
 }

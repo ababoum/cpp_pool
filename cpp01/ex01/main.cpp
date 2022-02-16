@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 16:04:32 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/16 17:13:47 by mababou          ###   ########.fr       */
+/*   Created: 2022/02/16 16:06:59 by mababou           #+#    #+#             */
+/*   Updated: 2022/02/16 17:20:05 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void randomChump(std::string name)
+int main(void)
 {
-	Zombie	zombie;
+	Zombie *lst = zombieHorde(5, "Einstein");
 
-	zombie.setName(name);
-	zombie.announce();
+	int i = 0;
+	while (i < 5)
+		lst[i++].announce();
 
-	return ;
+	i = 0;
+	
+	delete [] lst;
+	
+	return (0);	
 }

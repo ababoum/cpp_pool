@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:55:30 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/16 17:16:47 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:16:31 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Zombie::Zombie(void)
 {
-	std::cout << "The zombie " << this->_name << " has appeared." << std::endl;
+	std::cout << "A zombie has appeared." << std::endl;
 }
 
 Zombie::~Zombie(void)
