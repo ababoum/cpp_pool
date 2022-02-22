@@ -2,7 +2,7 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= Fixed
+NAME 		= fixed_float
 
 SRCS		= ./main.cpp \
 				./Fixed.cpp 
@@ -15,7 +15,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS) $(INCL)
 			$(CXX) $(CFLAGS) $(SRCS) -o $(NAME)
-			@echo "\033[1;32m Fixed executable is compiled and ready.\e[0m"
+			@echo "\033[1;32m fixed_float executable is compiled and ready.\e[0m"
 
 clean:		
 			@rm -f $(OBJS)
@@ -23,7 +23,7 @@ clean:
 
 fclean: 	clean
 			@rm -f  ${OBJS} $(NAME)
-			@echo "\033[1;36m Fixed executable successfully deleted.\e[0m"
+			@echo "\033[1;36m fixed_float executable successfully deleted.\e[0m"
 
 re: fclean ${NAME}
 
