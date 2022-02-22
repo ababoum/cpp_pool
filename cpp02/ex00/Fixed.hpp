@@ -6,12 +6,12 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:30:10 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/21 17:10:09 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/22 18:41:15 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-# define FIXED_H
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 #include <iostream>
 

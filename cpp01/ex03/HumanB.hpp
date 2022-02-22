@@ -6,12 +6,12 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:44:24 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/16 18:02:13 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/22 18:40:56 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_H
-# define HUMANB_H
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
 #include <iostream>
 #include "Weapon.hpp"

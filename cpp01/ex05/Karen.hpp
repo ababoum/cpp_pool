@@ -6,12 +6,12 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:30:10 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/21 12:58:00 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/22 18:41:05 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_H
-# define KAREN_H
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
 #include <iostream>
 

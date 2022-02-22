@@ -6,12 +6,12 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:30:10 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/21 15:48:57 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/22 18:41:10 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_H
-# define KAREN_H
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
 # define DEBUG_LVL 0
 # define INFO_LVL 1
