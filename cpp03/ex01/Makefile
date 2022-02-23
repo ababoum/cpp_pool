@@ -2,7 +2,7 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= fight_no2
+NAME 		= fight_no1
 
 SRCS		= ./main.cpp \
 				./ClapTrap.cpp \

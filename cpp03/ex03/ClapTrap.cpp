@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:29:17 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 15:16:36 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/23 14:20:55 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ClapTrap::ClapTrap(): _name(""), _hit_points(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(): _name(""), _hit_points(100), _energy_points(100), _attack_damage(30)
 {
 	std::cout << "\e[1mClapTrap \e[0m";
 	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(100), _energy_points(100), _attack_damage(30)
 {
 	std::cout << "\e[1mClapTrap \e[0m";
 	std::cout << "\e[3mName constructor called\e[0m" << std::endl;
@@ -55,9 +55,6 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &		ClapTrap::operator=(ClapTrap const & rhs)
 {
-	std::cout << "\e[1mClapTrap \e[0m";
-	std::cout << "\e[3mAssignement operator called\e[0m" << std::endl;
-
 	if ( this != &rhs )
 	{
 		this->_name = rhs.getName();

@@ -2,12 +2,16 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= fight_no0
+NAME 		= animals
 
 SRCS		= ./main.cpp \
-				./ClapTrap.cpp 
+				./Animal.cpp \
+				./Cat.cpp \
+				./Dog.cpp
 
-INCL		= ./ClapTrap.hpp 
+INCL		= ./Animal.hpp \
+				./Cat.hpp \
+				./Dog.hpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
@@ -25,6 +29,6 @@ fclean: 	clean
 			@rm -f  ${OBJS} $(NAME)
 			@echo "\033[1;36m $(NAME) executable successfully deleted.\e[0m"
 
-re: fclean ${NAME}
+re: 		fclean ${NAME}
 
 .PHONY: clean fclean all re

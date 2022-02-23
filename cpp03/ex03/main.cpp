@@ -6,13 +6,13 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:04:42 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 15:12:39 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/23 14:26:23 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-void	punch(ScavTrap & hitter, ScavTrap & hittee)
+void	punch(FragTrap & hitter, FragTrap & hittee)
 {
 	hitter.attack(hittee.getName());
 	if (hitter.getEnergyPoints() != 0 && hitter.getHitPoints() != 0)
@@ -21,20 +21,15 @@ void	punch(ScavTrap & hitter, ScavTrap & hittee)
 
 int main(void)
 {
-	ScavTrap	fighter1("Pikachu");
-	ScavTrap	fighter2("Mew");
-	ScavTrap	fighter3;
+	FragTrap	fighter1("Pikachu");
+	FragTrap	fighter2("Mew");
 
-	fighter3 = fighter1;
-	fighter3.guardGate();
-	fighter3.setName("Pikachu Clone");
-	fighter3.guardGate();
-	
+
 	punch(fighter2, fighter1);
 	punch(fighter2, fighter1);
 	punch(fighter1, fighter2);
 
-	fighter1.guardGate();
+	fighter1.highFivesGuys();
 
 	fighter2.beRepaired(1);
 	fighter2.beRepaired(1);

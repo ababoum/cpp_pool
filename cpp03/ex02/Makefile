@@ -2,12 +2,16 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= fight_no0
+NAME 		= fight_no2
 
 SRCS		= ./main.cpp \
-				./ClapTrap.cpp 
+				./ClapTrap.cpp \
+				./ScavTrap.cpp \
+				./FragTrap.cpp
 
-INCL		= ./ClapTrap.hpp 
+INCL		= ./ClapTrap.hpp \
+				./ScavTrap.hpp \
+				./FragTrap.hpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

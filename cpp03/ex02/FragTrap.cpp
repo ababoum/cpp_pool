@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:41:37 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 15:16:02 by mababou          ###   ########.fr       */
+/*   Updated: 2022/02/23 15:08:26 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mDefault constructor seeked\e[0m" << std::endl;
+	std::cout << "\e[1;45mFragTrap \e[0m";
+	std::cout << "\e[3mDefault constructor summoned\e[0m" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mName constructor seeked\e[0m" << std::endl;
+	std::cout << "\e[1;45mFragTrap \e[0m";
+	std::cout << "\e[3mName constructor summoned\e[0m" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &)
+FragTrap::FragTrap(const FragTrap & src)
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mCopy constructor seeked\e[0m" << std::endl;
+	std::cout << "\e[1;45mFragTrap \e[0m";
+	std::cout << "\e[3mCopy constructor summoned\e[0m" << std::endl;
+	*this = src;
 }
 
 
@@ -39,10 +40,10 @@ ScavTrap::ScavTrap(const ScavTrap &)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mDestructor seeked\e[0m" << std::endl;
+	std::cout << "\e[1;45mFragTrap \e[0m";
+	std::cout << "\e[3mDestructor summoned\e[0m" << std::endl;
 }
 
 
@@ -50,14 +51,12 @@ ScavTrap::~ScavTrap()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ScavTrap &				ScavTrap::operator=( ScavTrap const &)
+FragTrap &				FragTrap::operator=( FragTrap const &)
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mAssignement operator seeked\e[0m" << std::endl;
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
+std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
 {
 	o << i.getName();
 	return o;
@@ -68,15 +67,15 @@ std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void					ScavTrap::guardGate(void) const
+void					FragTrap::highFivesGuys(void) const
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << *this << " has entered in Gate Keeper 🚪 mode" << std::endl;
+	std::cout << "\e[1;45mFragTrap \e[0m";
+	std::cout << *this << " high fives 🙌 " << std::endl;
 }
 
-void					ScavTrap::attack(const std::string& target)
+void					FragTrap::attack(const std::string& target)
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
+	std::cout << "\e[1;45mFragTrap \e[0m";
 	if (this->_hit_points == 0)
 		std::cout << *this << " cannot attack with 0 hit point" << std::endl;
 	else if (this->_energy_points == 0)
