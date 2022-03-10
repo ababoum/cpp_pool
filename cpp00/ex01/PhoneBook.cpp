@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:10:26 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/15 17:40:10 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/10 16:23:32 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void	PhoneBook::add(void)
 	std::cout << "Darkest secret:" << std::endl;
 	std::cin >> darkest_secret;
 
-	this->contact_list[this->_cursor]._first_name = first_name;
-	this->contact_list[this->_cursor]._last_name = last_name;
-	this->contact_list[this->_cursor]._nickname = nickname;
-	this->contact_list[this->_cursor]._phone_number = phone_number;
-	this->contact_list[this->_cursor]._darkest_secret = darkest_secret;
+	this->_contact_list[this->_cursor].setFirstName(first_name);
+	this->_contact_list[this->_cursor].setLastName(last_name);
+	this->_contact_list[this->_cursor].setNickname(nickname);
+	this->_contact_list[this->_cursor].setPhoneNumber(phone_number);
+	this->_contact_list[this->_cursor].setDarkestSecret(darkest_secret);
 
 	std::cout << "Contact added in the slot " << this->_cursor << "." << std::endl;
 	
@@ -62,34 +62,34 @@ void	PhoneBook::_display(int index, Contact item) const
 {
 		std::cout << "         " << index << "|";
 
-		if (item.first_name.length() > 10)
-			std::cout << item.first_name.substr(0, 9) << "." << "|";
+		if (item.getFirstName().length() > 10)
+			std::cout << item.getFirstName().substr(0, 9) << "." << "|";
 		else
 		{
-			int i = 11 - item.first_name.length();
+			int i = 11 - item.getFirstName().length();
 			while (--i > 0)
 				std::cout << " ";
-			std::cout << item.first_name << "|";
+			std::cout << item.getFirstName() << "|";
 		}
 		
-		if (item.last_name.length() > 10)
-			std::cout << item.last_name.substr(0, 9) << "." << "|";
+		if (item.getLastName().length() > 10)
+			std::cout << item.getLastName().substr(0, 9) << "." << "|";
 		else
 		{
-			int i = 11 - item.last_name.length();
+			int i = 11 - item.getLastName().length();
 			while (--i > 0)
 				std::cout << " ";
-			std::cout << item.last_name << "|";
+			std::cout << item.getLastName() << "|";
 		}
 
-		if (item.nickname.length() > 10)
-			std::cout << item.nickname.substr(0, 9) << "." << std::endl;
+		if (item.getNickname().length() > 10)
+			std::cout << item.getNickname().substr(0, 9) << "." << std::endl;
 		else
 		{
-			int i = 11 - item.nickname.length();
+			int i = 11 - item.getNickname().length();
 			while (--i > 0)
 				std::cout << " ";
-			std::cout << item.nickname << std::endl;
+			std::cout << item.getNickname() << std::endl;
 		}
 
 		return ;
@@ -105,7 +105,7 @@ void	PhoneBook::search(void) const
 		std::cout << "Invalid index." << std::endl;
 	else
 	{
-		this->_display(index, this->contact_list[index]);
+		this->_display(index, this->_contact_list[index]);
 	}
 	return ;
 }

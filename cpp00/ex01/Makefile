@@ -5,7 +5,8 @@ CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 NAME 		= phonebook
 
 SRCS		= ./main.cpp \
-				./PhoneBook.cpp
+				./PhoneBook.cpp \
+				./Contact.cpp
 
 INCL		= ./PhoneBook.hpp \
 				./Contact.hpp
@@ -16,7 +17,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS) $(INCL)
 			$(CXX) $(CFLAGS) $(SRCS) -o $(NAME)
-			@echo "\033[1;32m Phonebook executable is compiled and ready.\e[0m"
+			@echo "\033[1;32m $(NAME) executable is compiled and ready.\e[0m"
 
 clean:		
 			@rm -f $(OBJS)
@@ -24,7 +25,7 @@ clean:
 
 fclean: 	clean
 			@rm -f  ${OBJS} $(NAME)
-			@echo "\033[1;36m Phonebook executable successfully deleted.\e[0m"
+			@echo "\033[1;36m $(NAME) executable successfully deleted.\e[0m"
 
 re: fclean ${NAME}
 

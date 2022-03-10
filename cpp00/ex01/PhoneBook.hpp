@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:05:39 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/15 15:57:08 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/10 15:40:37 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class PhoneBook {
 	
 public:
-	Contact	contact_list[8];
 	
 	PhoneBook(void);
 	~PhoneBook(void);
@@ -27,8 +26,9 @@ public:
 	void	search(void) const;
 
 private:
-	int	_cursor;
-	int _size;
+	int		_cursor;
+	int 	_size;
+	Contact	_contact_list[8];
 
 	void	_display(int index, Contact item) const;
 };
