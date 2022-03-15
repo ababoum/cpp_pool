@@ -6,11 +6,13 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:54:17 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/21 15:35:38 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/15 16:16:16 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Karen.hpp"
+
+typedef	void (Karen::*Action)(void);
 
 Karen::Karen(void)
 {
@@ -24,14 +26,17 @@ Karen::~Karen(void)
 
 void	Karen::complain(std::string level)
 {
-	if (level == "DEBUG")
-		this->_debug();
-	if (level == "INFO")
-		this->_info();
-	if (level == "WARNING")
-		this->_warning();
-	if (level == "ERROR")
-		this->_error();
+	Action action[] = { &Karen::_debug, &Karen::_info, &Karen::_warning, &Karen::_error};
+	std::string input[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (level == input[i])
+			((*this).*(action[i]))();
+		i++;
+	}
 }
 
 void	Karen::_debug(void)
