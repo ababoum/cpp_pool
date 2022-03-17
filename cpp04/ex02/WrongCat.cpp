@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 15:31:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 13:59:20 by mababou          ###   ########.fr       */
+/*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/17 14:20:19 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
+WrongCat::WrongCat()
 {
-	std::cout << "\e[1;30;43m Animal \e[0m ";
+	std::cout << "\e[1;30;47m WrongCat \e[0m ";
 	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
+	this->type_ = "WrongCat";
 }
 
-Animal::Animal( const Animal & src )
+WrongCat::WrongCat( const WrongCat &)
 {
-	std::cout << "\e[1;30;43m Animal\e[0m ";
+	std::cout << "\e[1;30;47m WrongCat\e[0m ";
 	std::cout << " \e[3mCopy constructor called\e[0m" << std::endl;
-	
-	this->type_ = src.getType();
 }
 
 
@@ -35,9 +34,9 @@ Animal::Animal( const Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+WrongCat::~WrongCat()
 {
-	std::cout << "\e[1;30;43m Animal\e[0m ";
+	std::cout << "\e[1;30;47m WrongCat\e[0m ";
 	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
 }
 
@@ -46,20 +45,15 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+WrongCat &				WrongCat::operator=( WrongCat const &)
 {
-	std::cout << "\e[1;30;43m Animal\e[0m ";
+	std::cout << "\e[1;30;47m WrongCat\e[0m ";
 	std::cout << " \e[3mAssignement operator called\e[0m" << std::endl;
-	
-	if ( this != &rhs )
-	{
-		this->type_ = rhs.getType();
-	}
 	
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
 {
 	o << i.getType();
 	
@@ -71,19 +65,9 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-std::string		Animal::getType(void) const
+void	WrongCat::makeSound(void) const
 {
-	return (this->type_);
-}
-
-void			Animal::setType(std::string type)
-{
-	this->type_ = type;
-}
-
-void			Animal::makeSound(void) const
-{
-	std::cout << "\"NOISE\"" << std::endl;
+	std::cout << "\"Meoow 🐱\"" << std::endl;
 }
 
 /*

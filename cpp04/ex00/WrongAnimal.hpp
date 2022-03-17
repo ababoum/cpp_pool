@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:31:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 13:59:24 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/17 14:28:44 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 
-class Animal
+class WrongAnimal
 {
 
 	public:
 
-		Animal();
-		Animal( Animal const & src );
-		virtual ~Animal();
+		WrongAnimal();
+		WrongAnimal( WrongAnimal const & src );
+		virtual ~WrongAnimal();
 
-		Animal &		operator=( Animal const & rhs );
+		WrongAnimal &		operator=( WrongAnimal const & rhs );
 
 		std::string		getType(void) const;
 		void			setType(std::string type);
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 
 	protected:
 		std::string		type_;
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
+std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i );
 
-#endif /* ********************************************************** ANIMAL_H */
+#endif /* ***************************************************** WRONGANIMAL_H */

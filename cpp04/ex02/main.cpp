@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 14:06:41 by mababou          ###   ########.fr       */
+/*   Created: 2022/02/23 15:57:16 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/17 17:34:37 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+# include "Cat.hpp"
+# include "Dog.hpp"
 
-# include <iostream>
-# include "Animal.hpp"
-
-class Cat: public Animal
+int main()
 {
+	Cat	minou;
+	Dog	klebs;
 
-	public:
+	
+	minou.makeSound();
+	klebs.makeSound();
 
-		Cat();
-		Cat(Cat const &);
-		virtual ~Cat();
-
-		Cat &		operator=(Cat const &);
-		void		makeSound(void) const;
-
-	private:
-
-};
-
-std::ostream &			operator<<( std::ostream & o, Cat const & i );
-
-#endif /* ************************************************************* CAT_H */
+	return (0);		
+}

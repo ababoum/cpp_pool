@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 14:06:41 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/17 14:19:28 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
-class Cat: public Animal
+class WrongCat: public WrongAnimal
 {
 
 	public:
 
-		Cat();
-		Cat(Cat const &);
-		virtual ~Cat();
+		WrongCat();
+		WrongCat(WrongCat const &);
+		virtual ~WrongCat();
 
-		Cat &		operator=(Cat const &);
+		WrongCat &		operator=(WrongCat const &);
 		void		makeSound(void) const;
 
 	private:
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i );
+std::ostream &			operator<<( std::ostream & o, WrongCat const & i );
 
-#endif /* ************************************************************* CAT_H */
+#endif /* ******************************************************** WRONGCAT_H */

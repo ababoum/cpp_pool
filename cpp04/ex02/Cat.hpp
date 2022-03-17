@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 14:06:41 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/17 16:21:50 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat: public Animal
 {
@@ -23,12 +24,13 @@ class Cat: public Animal
 
 		Cat();
 		Cat(Cat const &);
-		virtual ~Cat();
+		~Cat();
 
 		Cat &		operator=(Cat const &);
 		void		makeSound(void) const;
 
 	private:
+		Brain	*_brain;
 
 };
 

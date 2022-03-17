@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 15:31:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 13:59:20 by mababou          ###   ########.fr       */
+/*   Created: 2022/03/17 14:39:18 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/17 14:54:58 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Brain.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
+Brain::Brain()
 {
-	std::cout << "\e[1;30;43m Animal \e[0m ";
-	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
+	std::cout << "Brain is created" << std::endl;
 }
 
-Animal::Animal( const Animal & src )
+Brain::Brain( const Brain & src )
 {
-	std::cout << "\e[1;30;43m Animal\e[0m ";
-	std::cout << " \e[3mCopy constructor called\e[0m" << std::endl;
-	
-	this->type_ = src.getType();
+	std::cout << "Brain is copied" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->_idea[i] = src._idea[i];
 }
 
 
@@ -35,56 +33,29 @@ Animal::Animal( const Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+Brain::~Brain()
 {
-	std::cout << "\e[1;30;43m Animal\e[0m ";
-	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
+	std::cout << "Brain is destroyed" << std::endl;
 }
-
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+Brain &				Brain::operator=( Brain const & rhs )
 {
-	std::cout << "\e[1;30;43m Animal\e[0m ";
-	std::cout << " \e[3mAssignement operator called\e[0m" << std::endl;
-	
 	if ( this != &rhs )
 	{
-		this->type_ = rhs.getType();
+		for (int i = 0; i < 100; i++)
+			this->_idea[i] = rhs._idea[i];
 	}
-	
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
-{
-	o << i.getType();
-	
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-std::string		Animal::getType(void) const
-{
-	return (this->type_);
-}
-
-void			Animal::setType(std::string type)
-{
-	this->type_ = type;
-}
-
-void			Animal::makeSound(void) const
-{
-	std::cout << "\"NOISE\"" << std::endl;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
