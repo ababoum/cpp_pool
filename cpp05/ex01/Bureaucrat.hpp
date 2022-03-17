@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:04:01 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 18:53:12 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:13:15 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ class Bureaucrat
 		int			getGrade(void) const;
 
 		void		gradeIncrement(void);
-		void		gradeDecrement(void);		
+		void		gradeDecrement(void);
+		void		signForm(bool isSigned, std::string form_name);
 
 	private:
 		const std::string	_name;

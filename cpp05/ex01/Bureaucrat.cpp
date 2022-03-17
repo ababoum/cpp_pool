@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:04:01 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 19:07:30 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:17:25 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Bureaucrat::Bureaucrat(): _name(""), _grade(150)
+Bureaucrat::Bureaucrat(): _grade(150)
 {
 	std::cout << "\e[1;30;43m Bureaucrat \e[0m ";
 	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
@@ -42,12 +42,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 	catch (GradeTooLowException e)
 	{
 		this->_grade = 150;
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	catch (GradeTooHighException e)
 	{
 		this->_grade = 1;
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}		
 }
 
@@ -65,7 +65,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat & src ): _name(src.getName())
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "\e[1;30;43m Animal\e[0m ";
+	std::cout << "\e[1;30;43m Bureaucrat \e[0m ";
 	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
 }
 
@@ -107,12 +107,12 @@ void		Bureaucrat::gradeIncrement(void)
 	catch (GradeTooLowException e)
 	{
 		this->_grade = 150;
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	catch (GradeTooHighException e)
 	{
 		this->_grade = 1;
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}		
 }
 
@@ -130,15 +130,27 @@ void		Bureaucrat::gradeDecrement(void)
 	catch (GradeTooLowException e)
 	{
 		this->_grade = 150;
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	catch (GradeTooHighException e)
 	{
 		this->_grade = 1;
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }
 
+void		Bureaucrat::signForm(bool isSigned, std::string form_name)
+{
+	if (isSigned)
+	{
+		std::cout << this->_name << " signed " << form_name << std::endl;
+	}
+	else
+	{
+		std::cout << this->_name << " couldn't sign " << form_name;
+		std::cout << " because their grade is not high enough" << std::endl;
+	}
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

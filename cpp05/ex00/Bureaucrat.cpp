@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:04:01 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 19:07:30 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/17 19:29:58 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Bureaucrat::Bureaucrat(): _name(""), _grade(150)
+Bureaucrat::Bureaucrat(): _grade(150)
 {
 	std::cout << "\e[1;30;43m Bureaucrat \e[0m ";
 	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;

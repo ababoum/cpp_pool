@@ -2,12 +2,14 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= bureaucrats
+NAME 		= bureaucrats_forms
 
 SRCS		= ./main.cpp \
-				./Bureaucrat.cpp
+				./Bureaucrat.cpp \
+				./Form.cpp
 
-INCL		= ./Bureaucrat.hpp
+INCL		= ./Bureaucrat.hpp \
+				./Form.hpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

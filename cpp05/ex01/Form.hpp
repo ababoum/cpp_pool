@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:10:55 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 19:21:45 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:12:46 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,45 @@
 
 # include <iostream>
 # include <string>
+# include "Bureaucrat.hpp"
 
 class Form
 {
-
 	public:
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw()
+				{
+					return ("The grade affected to the Form is too \
+															high (< 1)");
+				}			
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw()
+				{
+					return ("The grade affected to the Form is too \
+															low (> 150)");
+				}			
+		};
 
 		Form();
 		Form( Form const & src );
+		Form(std::string name, int grade_to_sign, int grade_to_exe);
 		~Form();
 
 		Form &		operator=( Form const & rhs );
+
+		std::string		getName(void) const;
+		bool			getIsSigned(void) const;
+		int				getGradeSign(void) const;
+		int				getGradeExe(void) const;
+
+		void			beSigned(Bureaucrat signer);
 
 	private:
 		const std::string	_name;
