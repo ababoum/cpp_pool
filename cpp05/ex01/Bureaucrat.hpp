@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:04:01 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 20:13:15 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/18 13:53:40 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Bureaucrat
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("The grade affected to the Bureaucrat is too high (< 1)");
+					return ("\e[41m The grade affected to the Bureaucrat is too high (< 1) \e[0m");
 				}			
 		};
 
@@ -35,7 +35,7 @@ class Bureaucrat
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("The grade affected to the Bureaucrat is too low (> 150)");
+					return ("\e[41m The grade affected to the Bureaucrat is too low (> 150) \e[0m");
 				}			
 		};
 		

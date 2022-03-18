@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:10:55 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 20:17:05 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/18 13:47:45 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ Form::Form(std::string name, int grade_to_sign, int grade_to_exe): \
 {
 	std::cout << "\e[1;39;44m Form \e[0m ";
 	std::cout << " \e[3mParameters constructor called\e[0m" << std::endl;
+
+	if (this->_grade_to_sign > 150 || this->_grade_to_execute > 150)
+		throw GradeTooLowException();
+	else if (this->_grade_to_sign < 1 || this->_grade_to_execute < 1)
+		throw GradeTooHighException();
 }
 
 /*
@@ -78,22 +83,15 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 
 void	Form::beSigned(Bureaucrat signer)
 {
-	try
+	if (this->_grade_to_sign < signer.getGrade())
 	{
-		if (this->_grade_to_sign < signer.getGrade())
-		{
-			throw GradeTooLowException();
-		}
-		else
-		{
-			this->_is_signed = true;
-			signer.signForm(true, this->_name);
-		}
+		throw GradeTooLowException();
 	}
-	catch(GradeTooLowException e)
+	else
 	{
-		signer.signForm(false, this->_name);
-	}	
+		this->_is_signed = true;
+	}
+	signer.signForm(true, this->_name);
 }
 
 /*
