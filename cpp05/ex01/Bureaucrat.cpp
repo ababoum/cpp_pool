@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:04:01 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 20:17:25 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/18 13:43:09 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
 	std::cout << "\e[1;30;43m Bureaucrat \e[0m ";
 	std::cout << " \e[3mName & Grade constructor called\e[0m" << std::endl;
-	try
-	{
-		if (this->_grade > 150)
-			throw GradeTooLowException();
-		else if (this->_grade < 1)
-			throw GradeTooHighException();
-	}
-	catch (GradeTooLowException e)
-	{
-		this->_grade = 150;
-		std::cerr << e.what() << std::endl;
-	}
-	catch (GradeTooHighException e)
-	{
-		this->_grade = 1;
-		std::cerr << e.what() << std::endl;
-	}		
+	
+	if (this->_grade > 150)
+		throw GradeTooLowException();
+	else if (this->_grade < 1)
+		throw GradeTooHighException();	
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat & src ): _name(src.getName())
@@ -96,47 +84,18 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 
 void		Bureaucrat::gradeIncrement(void)
 {
-	this->_grade -= 1;
-	try
-	{
-		if (this->_grade > 150)
-			throw GradeTooLowException();
-		else if (this->_grade < 1)
-			throw GradeTooHighException();
-	}
-	catch (GradeTooLowException e)
-	{
-		this->_grade = 150;
-		std::cerr << e.what() << std::endl;
-	}
-	catch (GradeTooHighException e)
-	{
-		this->_grade = 1;
-		std::cerr << e.what() << std::endl;
-	}		
+	if (this->_grade == 1)
+		throw GradeTooHighException();
+	else
+		this->_grade -= 1;
 }
 
 void		Bureaucrat::gradeDecrement(void)
 {
-	
-	this->_grade += 1;
-	try
-	{
-		if (this->_grade > 150)
-			throw GradeTooLowException();
-		else if (this->_grade < 1)
-			throw GradeTooHighException();
-	}
-	catch (GradeTooLowException e)
-	{
-		this->_grade = 150;
-		std::cerr << e.what() << std::endl;
-	}
-	catch (GradeTooHighException e)
-	{
-		this->_grade = 1;
-		std::cerr << e.what() << std::endl;
-	}
+	if (this->_grade == 150)
+		throw GradeTooLowException();
+	else
+		this->_grade += 1;
 }
 
 void		Bureaucrat::signForm(bool isSigned, std::string form_name)
