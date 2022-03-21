@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:11:40 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/18 16:58:16 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/21 20:03:05 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <sstream>
+# include <limits>
 
 class Converter
 {
@@ -35,10 +36,18 @@ class Converter
 		std::string			toDouble(void);
 		
 
-		std::string		getInput(void) const;
+		std::string			getInput(void) const;
 
 	private:
+		std::string		_detect_type(std::string input);
+
+		std::string		_type;
 		std::string		_input;
+		char			_c;
+		int				_int;
+		float			_float;
+		double			_double;
+		
 
 };
 

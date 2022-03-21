@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:12:06 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/18 16:55:16 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/21 19:45:26 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int	main(int ac, char **av)
 	
 	Converter	capsule(av[1]);
 	std::cout << "char: " << capsule.toChar() << std::endl;
+	std::cout << "int: " << capsule.toInt() << std::endl;
+	std::cout << "float: " << capsule.toFloat() << std::endl;
+	std::cout << "double: " << capsule.toDouble() << std::endl;
 	
 	return (0);
 }
