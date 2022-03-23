@@ -11,7 +11,7 @@ OBJS		= $(SRCS:.cpp=.o)
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+			$(CC) $(CXXFLAGS) $(SRCS) -o $(NAME)
 			@echo "\033[1;32m Executable is compiled and ready.\e[0m"
 
 clean:		

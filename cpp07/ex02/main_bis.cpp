@@ -1,5 +1,6 @@
 #include <iostream>
-#include <Array.hpp>
+#include <math.h>
+#include "Array.hpp"
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -44,10 +45,19 @@ int main(int, char**)
         std::cerr << e.what() << '\n';
     }
 
+	std::cout << numbers[250] << " vs " << mirror[250] << std::endl;
+	std::cout << numbers[100] << " vs " << mirror[100] << std::endl;
+	std::cout << numbers[13] << " vs " << mirror[13] << std::endl;
+
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
     }
+	
+	std::cout << numbers[250] << " vs " << mirror[250] << std::endl;
+	std::cout << numbers[100] << " vs " << mirror[100] << std::endl;
+	std::cout << numbers[13] << " vs " << mirror[13] << std::endl;
+
     delete [] mirror;//
     return 0;
 }

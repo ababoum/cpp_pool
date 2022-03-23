@@ -8,7 +8,7 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/cpp06/ex00/converter",
+			"program": "${workspaceFolder}/cpp07/ex02/bis",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -30,8 +30,7 @@
 					"text": "-gdb-set follow-fork-mode child"
 				}
 			],
-			"miDebuggerPath": "/usr/bin/gdb",
-			"preLaunchTask": "Build"
+			"miDebuggerPath": "/usr/bin/gdb"
 		}
 	]
 }

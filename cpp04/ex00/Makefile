@@ -27,11 +27,11 @@ W_OBJS		= $(W_SRCS:.cpp=.o)
 all:		$(NAME)
 
 $(NAME):	$(OBJS) $(INCL)
-			$(CXX) $(CFLAGS) $(SRCS) -o $(NAME)
+			$(CXX) $(CXXFLAGS) $(SRCS) -o $(NAME)
 			@echo "\033[1;32m\e[1m $(NAME)\e[0m\033[32m executable is compiled and ready.\e[0m"
 
 wrong:		$(W_OBJS) $(W_INCL)
-			$(CXX) $(CFLAGS) $(W_SRCS) -o $(W_NAME)
+			$(CXX) $(CXXFLAGS) $(W_SRCS) -o $(W_NAME)
 			@echo "\033[1;32m\e[1m $(W_NAME)\e[0m\033[32m executable is compiled and ready.\e[0m"
 
 clean:		
