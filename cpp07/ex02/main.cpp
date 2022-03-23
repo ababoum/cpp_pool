@@ -6,13 +6,17 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 17:58:57 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/22 17:59:18 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/23 11:43:09 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Array.hpp>
+#include "Array.hpp"
 
 int	main(void)
 {
+	Array<int> lst(5);
 	
+	lst[0] = 5;
+
+	return (0);
 }

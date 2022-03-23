@@ -4,9 +4,10 @@ CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
 NAME 		= array
 
-SRCS		= ./main.cpp
+SRCS		= ./main.cpp \
+				./Array.tpp
 
-INCL		= ./iter.hpp
+INCL		= ./Array.hpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
