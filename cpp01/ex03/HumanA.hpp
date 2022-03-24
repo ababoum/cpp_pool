@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:44:24 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/22 18:40:53 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/24 21:34:33 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class	HumanA {
 	
 public:
 
+	HumanA(Weapon weapon);
 	HumanA(std::string name, Weapon weapon);
 	~HumanA(void);	
 

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:10:26 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/10 18:47:48 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/24 20:33:58 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,25 +75,22 @@ void	PhoneBook::add(void)
 
 void	PhoneBook::_display_all(int index, Contact item) const
 {
-	std::cout << "         " << index << "|";
+	std::cout << std::setw (10);
+	std::cout << index << "|";
 
 	if (item.getFirstName().length() > 10)
 		std::cout << item.getFirstName().substr(0, 9) << "." << "|";
 	else
 	{
-		int i = 11 - item.getFirstName().length();
-		while (--i > 0)
-			std::cout << " ";
+		std::cout << std::setw (10);
 		std::cout << item.getFirstName() << "|";
 	}
-	
+		
 	if (item.getLastName().length() > 10)
 		std::cout << item.getLastName().substr(0, 9) << "." << "|";
 	else
 	{
-		int i = 11 - item.getLastName().length();
-		while (--i > 0)
-			std::cout << " ";
+		std::cout << std::setw (10);
 		std::cout << item.getLastName() << "|";
 	}
 
@@ -101,9 +98,7 @@ void	PhoneBook::_display_all(int index, Contact item) const
 		std::cout << item.getNickname().substr(0, 9) << "." << std::endl;
 	else
 	{
-		int i = 11 - item.getNickname().length();
-		while (--i > 0)
-			std::cout << " ";
+		std::cout << std::setw (10);
 		std::cout << item.getNickname() << std::endl;
 	}
 
@@ -128,7 +123,7 @@ void	PhoneBook::search(void) const
 	int			index;
 
 	index = 0;
-	std::cout << "\e[1m     index|First name| Last name|  Nickname\e[0m" << std::endl;
+	std::cout << "\e[1m     Index|First name| Last name|  Nickname\e[0m" << std::endl;
 	while (index < this->_size)
 	{
 		this->_display_all(index, this->_contact_list[index]);
@@ -137,7 +132,7 @@ void	PhoneBook::search(void) const
 
 	std::cout << "Enter the index of the contact to display:" << std::endl;
 	std::getline(std::cin, input);
-	index = atoi(input.data());
+	index = input.data()[0] - '0';
 	if (index < 0 || index > this->_size - 1 || input.length() > 1 || !std::isdigit(input[0]))
 		std::cout << "Invalid index." << std::endl;
 	else

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:27:06 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/22 18:39:58 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/24 20:42:40 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	Account::displayAccountsInfos(void)
 	std::cout << "accounts:" << t::_nbAccounts << ";";
 	std::cout << "total:" << Account::_totalAmount << ";";
 	std::cout << "deposits:" << Account::_totalNbDeposits << ";";
-	std::cout << "withdrawals:" << Account::_totalNbWithdrawals << ";";
+	std::cout << "withdrawals:" << Account::_totalNbWithdrawals;
 	std::cout << std::endl;
 }
 

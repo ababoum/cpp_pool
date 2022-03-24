@@ -6,13 +6,18 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:55:30 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/16 17:40:36 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/24 21:16:45 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 Zombie::Zombie(void)
+{
+	std::cout << "A zombie has appeared." << std::endl;
+}
+
+Zombie::Zombie(std::string name): _name(name)
 {
 	std::cout << "A zombie has appeared." << std::endl;
 }

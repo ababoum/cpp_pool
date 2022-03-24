@@ -6,23 +6,30 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:55:35 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/14 16:03:30 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/24 18:57:27 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
-char	to_upper(char c)
+std::string	str_toupper(std::string & str)
 {
-	if (c >= 97 && c <= 122)
-		return (c - 32);
-	return (c);
+	unsigned long	i;
+	std::string		upper;
+
+	for (i = 0; i < str.length(); i++) {
+		if (str[i] >= 'a' && str[i] <= 'z')
+			upper += std::toupper(str[i]);
+		else
+			upper += str[i];
+	}
+	return (upper);
 }
 
 int	main(int ac, char **av)
 {
 	int i = 0;
-	int j = 0;
 	
 	if (ac == 1)
 	{
@@ -32,9 +39,8 @@ int	main(int ac, char **av)
 	{
 		while (i < ac - 1)
 		{
-			j = 0;
-			while (av[i + 1][j])
-				std::cout << to_upper(av[i + 1][j++]);
+			std::string arg(av[i + 1]);
+			std::cout << str_toupper(arg);
 			i++;
 		}
 		std::cout << std::endl;	
