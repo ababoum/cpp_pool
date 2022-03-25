@@ -6,13 +6,11 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:54:17 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/21 17:35:21 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/25 18:53:12 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-const int Fixed::_frac_len = 8;
 
 Fixed::Fixed(void): _raw(0)
 {

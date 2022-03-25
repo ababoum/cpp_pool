@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:30:10 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/22 18:41:15 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/25 18:52:55 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 private:
 
 	int					_raw;
-	static const int	_frac_len;
+	static const int	_frac_len = 8;
 };
 
 #endif

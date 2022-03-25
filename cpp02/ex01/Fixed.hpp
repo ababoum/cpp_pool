@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:30:10 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/22 18:41:19 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/25 18:54:07 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ public:
 
 	Fixed(void);
 	Fixed(Fixed const & src);
-	Fixed(const int);
-	Fixed(const float);
+	Fixed(const int n);
+	Fixed(const float f);
 	~Fixed(void);
 
 	Fixed &	operator=(Fixed const & rhs);
@@ -36,7 +36,7 @@ public:
 private:
 
 	float				_raw;
-	static const int	_frac_len;
+	static const int	_frac_len = 8;
 };
 
 std::ostream &	operator<<(std::ostream & o, Fixed const & rhs);
