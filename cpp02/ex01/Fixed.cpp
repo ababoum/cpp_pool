@@ -6,11 +6,22 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:54:17 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/25 18:54:40 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/25 20:58:41 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+static float	pow(int val, int power)
+{
+	float powered = val;
+	
+	
+	while (--power > 0) {
+		powered *= val;
+	}
+	return (powered);
+}
 
 Fixed::Fixed(void): _raw(0)
 {
@@ -26,13 +37,13 @@ Fixed::Fixed(Fixed const & src)
 Fixed::Fixed(const int n)
 {
 	std::cout << "\e[3m Int constructor called\e[0m" << std::endl;
-	this->_raw = n;
+	this->_raw = n * pow(2, this->_frac_len);
 }
 
 Fixed::Fixed(const float f)
 {
 	std::cout << "\e[3m Float constructor called\e[0m" << std::endl;
-	this->_raw = f;
+	this->_raw = roundf(f * pow(2, this->_frac_len));
 }
 
 Fixed::~Fixed(void)
@@ -66,10 +77,16 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return (this->_raw);
+	float	f;
+
+	f = (float)(this->_raw / pow(2, this->_frac_len));
+	return (f);
 }
 
-int	Fixed::toInt(void) const
+int		Fixed::toInt(void) const
 {
-	return (roundf(this->_raw));
+	float	i = 0;
+
+	i = this->_raw / pow(2, this->_frac_len);
+	return (i);
 }
