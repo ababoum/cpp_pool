@@ -6,28 +6,12 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:58:17 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/16 20:29:05 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/25 17:06:49 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] && i < n - 1)
-	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (s1[i] - s2[i]);
-}
 
 std::string replacer(std::string line, std::string s1, std::string s2)
 {
@@ -35,53 +19,79 @@ std::string replacer(std::string line, std::string s1, std::string s2)
 		return (line);
 
 	size_t i = 0;
-	const char *str = line.data();
 	std::string output;
 
-	while (i < line.length())
+	while (42)
 	{
-		if (i + s1.length() <= line.length() && !line.substr(i, s1.length()).compare(s1))
-		// if (!ft_strncmp(str + i, s1.data(), s1.length()))
-		{
-			output.append(s2);
+		i = line.find(s1);
+		if (i == std::string::npos) {
+			output += line;
+			break ;
+		}
+		else {
+			output += line.substr(0, i);
+			output += s2;
 			i += s1.length();
+			line = line.substr(i, line.length());
 		}
-		else
-		{
-			output.push_back(str[i]);
-			i++;
-		}
-	}
-	
+	}	
 	return (output);
 }
 
 
 int main(int ac, char **av)
 {
+	bool nl = false;
+
 	if (ac != 4)
 	{
-		std::cout << "Invalid number of arguments <filename, s1, s2>" << std::endl;
+		std::cerr << "Invalid number of arguments <filename, s1, s2>" << std::endl;
 		return (1);
 	}
 	
 	std::ifstream	src_file;
 	std::ofstream	dest_file;
-	std::string 	dest_filename;
+	std::string 	dest_filename(av[1]);
+	bool			start = true;
 
-	dest_filename = (std::string)av[1];
 	dest_filename.append(".replace");
 	
-	src_file.open(av[1], std::ios::in);
-	dest_file.open(dest_filename.data());
+	src_file.open(av[1], std::ifstream::in);
+	
+	if (!src_file) {
+		std::cerr << "\e[31mAn error occured while opening the input file\e[0m" << std::endl;
+		return (1);
+	}
+
+	dest_file.open(dest_filename.data(), std::ofstream::out | std::ofstream::trunc);
+	if (!dest_file) {
+		std::cerr << "\e[31mAn error occured while creating the output file\e[0m" << std::endl;
+		return (1);
+	}
+
+	src_file.seekg(-1, src_file.end);	
+	char c;
+	src_file.get(c);
+	if (c == '\n') {
+		nl = true;
+	}
+	src_file.seekg(0, src_file.beg);	
 
 	std::string line;
-
-	while (std::getline(src_file, line))
-	{
-		dest_file << replacer(line, av[2], av[3]) << std::endl;
+	
+	while (std::getline(src_file, line)) {
+		if (start)
+			start = false;
+		else
+			dest_file << std::endl;
+		dest_file << replacer(line, av[2], av[3]);	
 	}
 	
+	if (nl)
+		dest_file << std::endl;
+
 	src_file.close();
 	dest_file.close();
+
+	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:04:42 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/21 15:59:25 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/25 18:05:10 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int	main(int ac, char **av)
 {
@@ -19,22 +19,19 @@ int	main(int ac, char **av)
 		std::cout << "Invalid number of arguments. Please launch the program with the acceptable complaining level." << std::endl;
 		return (0);
 	}
+	std::string filter(av[1]);
+	Harl	chipie(filter);
 
-	Karen	chipie;
-	int		filter;
-
-	filter = chipie.convert_filter(av[1]);
-
-	if (filter == 42)
+	if (chipie.getFilter() == 42)
 	{
 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		return (0);
 	}
-
-	chipie.complain("DEBUG", filter);
-	chipie.complain("INFO", filter);
-	chipie.complain("WARNING", filter);
-	chipie.complain("ERROR", filter);	
+	
+	chipie.complain("DEBUG");
+	chipie.complain("INFO");
+	chipie.complain("WARNING");
+	chipie.complain("ERROR");	
 	
 	return (0);
 }

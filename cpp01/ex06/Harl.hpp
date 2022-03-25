@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   Harl.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#ifndef Harl_HPP
+# define Harl_HPP
+
+#include <iostream>
 
 # define DEBUG_LVL 0
 # define INFO_LVL 1
 # define WARNING_LVL 2
 # define ERROR_LVL 3
 
-#include <iostream>
-
-class	Karen {
+class	Harl {
 	
 public:
 
-	Karen(void);
-	~Karen(void);
+	Harl(std::string filter);
+	~Harl(void);
 
-	void	complain(std::string level, int filter) const;
-	void	display_filter(int filter) const;
+	void	complain(std::string level);
 	int		convert_filter(std::string level) const;
+	int		getFilter(void) const;
 
 private:
 
-	void	_debug(void) const;
-	void	_info(void) const;
-	void	_warning(void) const;
-	void	_error(void) const;
+	int		_filter;
+	void	_debug(void);
+	void	_info(void);
+	void	_warning(void);
+	void	_error(void);
+	void	_display_filter(int filter) const;
 };
 
 #endif
