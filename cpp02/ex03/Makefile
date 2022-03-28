@@ -2,12 +2,15 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= fixed_ops
+NAME 		= bsp
 
 SRCS		= ./main.cpp \
-				./Fixed.cpp 
+				./Fixed.cpp \
+				./Point.cpp \
+				./bsp.cpp
 
-INCL		= ./Fixed.hpp 
+INCL		= ./Fixed.hpp \
+				./Point.hpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

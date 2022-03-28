@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:02 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 16:30:03 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/28 20:01:51 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ Dog::~Dog()
 Dog &				Dog::operator=( Dog const &)
 {
 	std::cout << "\e[1;30;48m Dog\e[0m ";
-	std::cout << " \e[3mAssignement operator called\e[0m" << std::endl;
+	std::cout << " \e[3mAssignment operator called\e[0m" << std::endl;
 	
 	return *this;
 }

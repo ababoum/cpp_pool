@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:54:17 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/25 20:58:41 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/28 17:24:57 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static float	pow(int val, int power)
 {
 	float powered = val;
-	
 	
 	while (--power > 0) {
 		powered *= val;
@@ -37,12 +36,16 @@ Fixed::Fixed(Fixed const & src)
 Fixed::Fixed(const int n)
 {
 	std::cout << "\e[3m Int constructor called\e[0m" << std::endl;
+	if (n > 8388607 || n < -8388608)
+		std::cerr << "\e[31m Warning: the raw bits are overflowed\e[0m" << std::endl;
 	this->_raw = n * pow(2, this->_frac_len);
 }
 
 Fixed::Fixed(const float f)
 {
 	std::cout << "\e[3m Float constructor called\e[0m" << std::endl;
+	if (f > 8388607.99609 || f < -8388608)
+		std::cerr << "\e[31m Warning: the raw bits are overflowed\e[0m" << std::endl;
 	this->_raw = roundf(f * pow(2, this->_frac_len));
 }
 
@@ -65,7 +68,7 @@ std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
 	return (o);
 }
 
-float	Fixed::getRawBits(void) const
+int	Fixed::getRawBits(void) const
 {
 	return (this->_raw);
 }

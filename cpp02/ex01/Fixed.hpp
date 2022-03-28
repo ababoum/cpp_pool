@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:30:10 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/25 20:43:10 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/28 12:09:40 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 
 	Fixed &	operator=(Fixed const & rhs);
 
-	float	getRawBits(void) const;
+	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 	float	toFloat(void) const;
 	int		toInt(void) const;

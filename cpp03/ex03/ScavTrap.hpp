@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:41:34 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 14:40:34 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/28 20:52:35 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ class ScavTrap: virtual public ClapTrap
 
 		void		guardGate(void) const;
 		void		attack(const std::string& target);
+		
+		static const unsigned int	init_hit_points = 100;
+		static const unsigned int	init_energy_points = 50;
+		static const unsigned int	init_attack_damage = 20;
 
 };
 

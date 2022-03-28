@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:41:37 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 15:08:02 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/28 20:27:44 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 
 FragTrap::FragTrap()
 {
-	std::cout << "\e[1;45mFragTrap \e[0m";
-	std::cout << "\e[3mDefault constructor summoned\e[0m" << std::endl;
+	std::cout << "\e[1;45mFragTrap\e[0m ";
+	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
-	std::cout << "\e[1;45mFragTrap \e[0m";
-	std::cout << "\e[3mName constructor summoned\e[0m" << std::endl;
+	std::cout << "\e[1;45mFragTrap\e[0m ";
+	std::cout << "\e[3mName constructor called\e[0m" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap & src)
 {
-	std::cout << "\e[1;45mFragTrap \e[0m";
-	std::cout << "\e[3mCopy constructor summoned\e[0m" << std::endl;
+	std::cout << "\e[1;45mFragTrap\e[0m ";
+	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 	*this = src;
 }
 
@@ -42,8 +42,8 @@ FragTrap::FragTrap(const FragTrap & src)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "\e[1;45mFragTrap \e[0m";
-	std::cout << "\e[3mDestructor summoned\e[0m" << std::endl;
+	std::cout << "\e[1;45mFragTrap\e[0m ";
+	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 
@@ -69,13 +69,13 @@ std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
 
 void					FragTrap::highFivesGuys(void) const
 {
-	std::cout << "\e[1;45mFragTrap \e[0m";
+	std::cout << "\e[1;45mFragTrap\e[0m ";
 	std::cout << *this << " high fives 🙌 " << std::endl;
 }
 
 void					FragTrap::attack(const std::string& target)
 {
-	std::cout << "\e[1;45mFragTrap \e[0m";
+	std::cout << "\e[1;45mFragTrap\e[0m ";
 	if (this->_hit_points == 0)
 		std::cout << *this << " cannot attack with 0 hit point" << std::endl;
 	else if (this->_energy_points == 0)

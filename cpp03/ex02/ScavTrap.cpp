@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:41:37 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 14:23:29 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/28 21:03:29 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@
 ScavTrap::ScavTrap()
 {
 	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mDefault constructor seeked\e[0m" << std::endl;
+	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mName constructor seeked\e[0m" << std::endl;
+	std::cout << "\e[3mName constructor called\e[0m" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &)
 {
 	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mCopy constructor seeked\e[0m" << std::endl;
+	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 }
 
 
@@ -42,7 +42,7 @@ ScavTrap::ScavTrap(const ScavTrap &)
 ScavTrap::~ScavTrap()
 {
 	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mDestructor seeked\e[0m" << std::endl;
+	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 

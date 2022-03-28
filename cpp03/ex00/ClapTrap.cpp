@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:29:17 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 15:16:36 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/28 20:01:51 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ ClapTrap::~ClapTrap()
 ClapTrap &		ClapTrap::operator=(ClapTrap const & rhs)
 {
 	std::cout << "\e[1mClapTrap \e[0m";
-	std::cout << "\e[3mAssignement operator called\e[0m" << std::endl;
+	std::cout << "\e[3mAssignment operator called\e[0m" << std::endl;
 
 	if ( this != &rhs )
 	{

@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/28 20:01:51 by mababou          ###   ########.fr       */
+/*   Created: 2022/03/28 15:05:15 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/28 17:18:13 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Point.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat()
+Point::Point(void)
 {
-	std::cout << "\e[1;30;47m Cat \e[0m ";
-	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
-	this->type_ = "Cat";
-	this->_brain = new Brain();
+	return ;
 }
 
-Cat::Cat( const Cat & src )
+Point::Point( const Point & src ): _x(src.getX()), _y(src.getY())
 {
-	std::cout << "\e[1;30;47m Cat\e[0m ";
-	std::cout << " \e[3mCopy constructor called\e[0m" << std::endl;
-	this->_brain = new Brain();
-	for (int i = 0; i < 100; i++)
-		*(this->_brain) = *(src._brain);
+	return ;
+}
+
+Point::Point(const float x0, const float y0): _x(Fixed(x0)), _y(Fixed(y0))
+{
+	return ;
+}
+
+Point::Point(const Fixed x0, const Fixed y0): _x(x0), _y(y0)
+{
+	return ;
 }
 
 
@@ -38,11 +41,8 @@ Cat::Cat( const Cat & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cat::~Cat()
+Point::~Point()
 {
-	std::cout << "\e[1;30;47m Cat\e[0m ";
-	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
-	delete this->_brain;
 }
 
 
@@ -50,18 +50,19 @@ Cat::~Cat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cat &				Cat::operator=( Cat const &)
+Point &				Point::operator=( Point const & rhs )
 {
-	std::cout << "\e[1;30;47m Cat\e[0m ";
-	std::cout << " \e[3mAssignment operator called\e[0m" << std::endl;
-	
+	if (this != &rhs )
+	{
+		// this->setX(rhs.getX());
+		// this->setY(rhs.getY());
+	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i )
+std::ostream &			operator<<( std::ostream & o, Point const & i )
 {
-	o << i.getType();
-	
+	o << "x = " << i.getX() << " and y =" << i.getY();
 	return o;
 }
 
@@ -70,14 +71,23 @@ std::ostream &			operator<<( std::ostream & o, Cat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Cat::makeSound(void) const
+Fixed	Point::scalar(Point const &P1, Point const &P2)
 {
-	std::cout << "\"Meoow 🐱\"" << std::endl;
+	return ((P1.getX() * P2.getY()) - (P1.getY() * P2.getX()));
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+const Fixed 	&Point::getX(void) const
+{
+	return (this->_x);
+}
+
+const Fixed 	&Point::getY(void) const
+{
+	return (this->_y);
+}
 
 /* ************************************************************************** */

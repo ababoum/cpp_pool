@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:41:37 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 14:23:29 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/28 21:03:54 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mDefault constructor seeked\e[0m" << std::endl;
+	std::cout << "\e[1;44mScavTrap\e[0m ";
+	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mName constructor seeked\e[0m" << std::endl;
+	std::cout << "\e[1;44mScavTrap\e[0m ";
+	std::cout << "\e[3mName constructor called\e[0m" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &)
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mCopy constructor seeked\e[0m" << std::endl;
+	std::cout << "\e[1;44mScavTrap\e[0m ";
+	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 }
 
 
@@ -41,8 +41,8 @@ ScavTrap::ScavTrap(const ScavTrap &)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
-	std::cout << "\e[3mDestructor seeked\e[0m" << std::endl;
+	std::cout << "\e[1;44mScavTrap\e[0m ";
+	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 
@@ -68,13 +68,13 @@ std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
 
 void					ScavTrap::guardGate(void) const
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
+	std::cout << "\e[1;44mScavTrap\e[0m ";
 	std::cout << *this << " has entered in Gate Keeper 🚪 mode" << std::endl;
 }
 
 void					ScavTrap::attack(const std::string& target)
 {
-	std::cout << "\e[1;44mScavTrap \e[0m";
+	std::cout << "\e[1;44mScavTrap\e[0m ";
 	if (this->_hit_points == 0)
 		std::cout << *this << " cannot attack with 0 hit point" << std::endl;
 	else if (this->_energy_points == 0)
