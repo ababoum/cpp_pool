@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 16:21:50 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 17:54:46 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,19 @@
 
 # include <iostream>
 # include "Animal.hpp"
-# include "Brain.hpp"
 
 class Cat: public Animal
 {
 
 	public:
 
-		Cat();
-		Cat(Cat const &);
+		Cat(void);
+		Cat(Cat const & rhs);
 		~Cat();
 
 		Cat &		operator=(Cat const &);
+
 		void		makeSound(void) const;
-
-	private:
-		Brain	*_brain;
-
 };
 
 std::ostream &			operator<<( std::ostream & o, Cat const & i );

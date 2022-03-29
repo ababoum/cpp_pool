@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:31:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 14:28:44 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 19:24:31 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class WrongAnimal
 
 		WrongAnimal();
 		WrongAnimal( WrongAnimal const & src );
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 
-		WrongAnimal &		operator=( WrongAnimal const & rhs );
+		WrongAnimal &		operator=( WrongAnimal const & rhs);
 
 		std::string		getType(void) const;
 		void			setType(std::string type);
-		void	makeSound(void) const;
+		void			makeSound(void) const;
 
 	protected:
 		std::string		type_;

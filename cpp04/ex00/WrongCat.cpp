@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 16:06:42 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 19:24:25 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,15 @@ WrongCat::~WrongCat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-WrongCat &				WrongCat::operator=( WrongCat const &)
+WrongCat &				WrongCat::operator=( WrongCat const & rhs)
 {
 	std::cout << "\e[1;30;47m WrongCat\e[0m ";
 	std::cout << "\e[3mAssignment operator called\e[0m" << std::endl;
+	
+	if ( this != &rhs )
+	{
+		this->type_ = rhs.getType();
+	}
 	
 	return *this;
 }

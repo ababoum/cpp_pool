@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 14:19:28 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 19:24:07 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ class WrongCat: public WrongAnimal
 
 		WrongCat();
 		WrongCat(WrongCat const &);
-		virtual ~WrongCat();
+		~WrongCat();
 
 		WrongCat &		operator=(WrongCat const &);
-		void		makeSound(void) const;
+		
+		void			makeSound(void) const;
 
 	private:
 

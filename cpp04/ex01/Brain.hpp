@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:39:18 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 14:42:40 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 20:01:43 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Brain
 		~Brain();
 
 		Brain &		operator=( Brain const & rhs );
+
+		void	
 
 	private:
 		std::string	_idea[100];

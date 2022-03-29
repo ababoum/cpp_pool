@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:57:16 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 17:27:00 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 17:53:34 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,25 @@
 
 int main()
 {
-	Animal	*animals[10];
+	const Animal*	meta = new Animal();
+	const Animal*	i = new Cat();
+	Animal*			i2 = new Cat();
+	Animal*			i3 = new Cat();
+	const Animal*	j = new Dog();
 	
-	for (int i = 0; i < 5; i++)
-	{
-		animals[i] = new Cat();
-	}
-	for (int i = 5; i < 10; i++)
-	{
-		animals[i] = new Dog();
-	}
+	*i3 = *j;
 	
-	animals[0]->makeSound();
-	animals[6]->makeSound();
+	i->makeSound(); //will output the cat sound!
+	i2->makeSound(); //will output the cat sound!
+	i3->makeSound(); //will output the cat sound!
+	j->makeSound(); //will output the dog sound!
+	meta->makeSound();
 
-	for (int i = 0; i < 10; i++)
-		delete animals[i];
-
-	return (0);		
+	delete meta;
+	delete i;
+	delete i2;
+	delete i3;
+	delete j;
+	
+	return (0);
 }
