@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:04:01 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/18 13:41:52 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 16:06:55 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 
 Bureaucrat::Bureaucrat(): _grade(150)
 {
-	std::cout << "\e[1;30;43m Bureaucrat \e[0m ";
-	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;30;43m Bureaucrat\e[0m ";
+	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name): _name(name), _grade(150)
 {
-	std::cout << "\e[1;30;43m Bureaucrat \e[0m ";
-	std::cout << " \e[3mName constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;30;43m Bureaucrat\e[0m ";
+	std::cout << "\e[3mName constructor called\e[0m" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
-	std::cout << "\e[1;30;43m Bureaucrat \e[0m ";
-	std::cout << " \e[3mName & Grade constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;30;43m Bureaucrat\e[0m ";
+	std::cout << "\e[3mName & Grade constructor called\e[0m" << std::endl;
 
 	if (this->_grade > 150)
 		throw GradeTooLowException();
@@ -41,8 +41,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 
 Bureaucrat::Bureaucrat( const Bureaucrat & src ): _name(src.getName())
 {
-	std::cout << "\e[1;30;43m Bureaucrat \e[0m ";
-	std::cout << " \e[3mCopy constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;30;43m Bureaucrat\e[0m ";
+	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 	_grade = src.getGrade();
 }
 
@@ -54,7 +54,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat & src ): _name(src.getName())
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << "\e[1;30;43m Animal\e[0m ";
-	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
+	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 

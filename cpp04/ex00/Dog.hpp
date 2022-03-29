@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:02 by mababou           #+#    #+#             */
-/*   Updated: 2022/02/23 16:26:33 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 17:54:33 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,12 @@ class Dog: public Animal
 	public:
 
 		Dog();
-		Dog(Dog const &);
-		virtual ~Dog();
+		Dog(Dog const & rhs);
+		~Dog();
 
 		Dog &		operator=(Dog const &);
 		
 		void		makeSound(void) const;
-	private:
-
 };
 
 std::ostream &			operator<<( std::ostream & o, Dog const & i );

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:10:55 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/18 13:59:24 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 16:06:59 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Form
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("\e[41m The grade associated with the Form is too high (< 1) \e[0m");
+					return ("\e[41m The grade associated with the Form is too high (< 1)\e[0m");
 				}			
 		};
 
@@ -35,7 +35,7 @@ class Form
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("\e[41m The grade associated with the Form is too low (> 150) \e[0m");
+					return ("\e[41m The grade associated with the Form is too low (> 150)\e[0m");
 				}			
 		};
 

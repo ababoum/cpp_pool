@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:10:55 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/18 13:47:45 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 16:06:59 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,23 @@
 
 Form::Form(): _is_signed(false), _grade_to_sign(150), _grade_to_execute(150)
 {
-	std::cout << "\e[1;39;44m Form \e[0m ";
-	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;39;44m Form\e[0m ";
+	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 }
 
 Form::Form( const Form & src ):_name(src.getName()), _is_signed(false), \
 								_grade_to_sign(150), _grade_to_execute(150)
 {
-	std::cout << "\e[1;39;44m Form \e[0m ";
-	std::cout << " \e[3mCopy constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;39;44m Form\e[0m ";
+	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 }
 
 Form::Form(std::string name, int grade_to_sign, int grade_to_exe): \
 	_name(name), _is_signed(false), _grade_to_sign(grade_to_sign), \
 	_grade_to_execute(grade_to_exe)
 {
-	std::cout << "\e[1;39;44m Form \e[0m ";
-	std::cout << " \e[3mParameters constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;39;44m Form\e[0m ";
+	std::cout << "\e[3mParameters constructor called\e[0m" << std::endl;
 
 	if (this->_grade_to_sign > 150 || this->_grade_to_execute > 150)
 		throw GradeTooLowException();
@@ -48,8 +48,8 @@ Form::Form(std::string name, int grade_to_sign, int grade_to_exe): \
 
 Form::~Form()
 {
-	std::cout << "\e[1;39;44m Form \e[0m ";
-	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
+	std::cout << "\e[1;39;44m Form\e[0m ";
+	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 

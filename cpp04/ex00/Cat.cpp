@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/28 20:01:51 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 16:21:56 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat()
+Cat::Cat(void)
 {
-	std::cout << "\e[1;30;47m Cat \e[0m ";
-	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;30;47m Cat\e[0m ";
+	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 	this->type_ = "Cat";
 }
 
 Cat::Cat( const Cat &)
 {
 	std::cout << "\e[1;30;47m Cat\e[0m ";
-	std::cout << " \e[3mCopy constructor called\e[0m" << std::endl;
+	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 }
 
 
@@ -37,7 +37,7 @@ Cat::Cat( const Cat &)
 Cat::~Cat()
 {
 	std::cout << "\e[1;30;47m Cat\e[0m ";
-	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
+	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 
@@ -45,10 +45,15 @@ Cat::~Cat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cat &				Cat::operator=( Cat const &)
+Cat &				Cat::operator=( Cat const & rhs)
 {
 	std::cout << "\e[1;30;47m Cat\e[0m ";
-	std::cout << " \e[3mAssignment operator called\e[0m" << std::endl;
+	std::cout << "\e[3mAssignment operator called\e[0m" << std::endl;
+	
+	if ( this != &rhs )
+	{
+		this->type_ = rhs.getType();
+	}
 	
 	return *this;
 }

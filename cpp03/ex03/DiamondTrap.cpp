@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 14:31:38 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/28 21:07:04 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 12:21:55 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ DiamondTrap::DiamondTrap()
 	this->_attack_damage = FragTrap::init_attack_damage;
 }
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name)
+DiamondTrap::DiamondTrap(std::string name)
 {
 	std::cout << "\e[1;46mDiamondTrap\e[0m ";
 	std::cout << "\e[3mName constructor called\e[0m" << std::endl;
+	this->_name = name;
+	ClapTrap::_name = name + "_clap_name";
 	this->_hit_points = FragTrap::init_hit_points;
 	this->_energy_points = ScavTrap::init_energy_points;
 	this->_attack_damage = FragTrap::init_attack_damage;
@@ -79,9 +81,8 @@ std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i )
 void	DiamondTrap::whoAmI(void) const
 {
 	std::cout << "\e[1;46mDiamondTrap\e[0m ";
-	std::cout << "Who am I? Name: " << *this;
-	std::cout << " and ClapTrap Name: " << ClapTrap::getName();
-	std::cout << "_clap_name" << std::endl;
+	std::cout << "Who am I? Name: " << this->_name;
+	std::cout << " and ClapTrap Name: " << ClapTrap::_name << std::endl;
 }
 
 void	DiamondTrap::attack(const std::string& target)

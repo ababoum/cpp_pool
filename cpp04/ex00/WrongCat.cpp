@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/28 20:01:51 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 16:06:42 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 
 WrongCat::WrongCat()
 {
-	std::cout << "\e[1;30;47m WrongCat \e[0m ";
-	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;30;47m WrongCat\e[0m ";
+	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 	this->type_ = "WrongCat";
 }
 
 WrongCat::WrongCat( const WrongCat &)
 {
 	std::cout << "\e[1;30;47m WrongCat\e[0m ";
-	std::cout << " \e[3mCopy constructor called\e[0m" << std::endl;
+	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 }
 
 
@@ -37,7 +37,7 @@ WrongCat::WrongCat( const WrongCat &)
 WrongCat::~WrongCat()
 {
 	std::cout << "\e[1;30;47m WrongCat\e[0m ";
-	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
+	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 
@@ -48,7 +48,7 @@ WrongCat::~WrongCat()
 WrongCat &				WrongCat::operator=( WrongCat const &)
 {
 	std::cout << "\e[1;30;47m WrongCat\e[0m ";
-	std::cout << " \e[3mAssignment operator called\e[0m" << std::endl;
+	std::cout << "\e[3mAssignment operator called\e[0m" << std::endl;
 	
 	return *this;
 }

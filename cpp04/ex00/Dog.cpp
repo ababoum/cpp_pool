@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:02 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/28 20:01:51 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 17:55:42 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 
 Dog::Dog()
 {
-	std::cout << "\e[1;30;48m Dog \e[0m ";
-	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;30;48m Dog\e[0m ";
+	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 	this->type_ = "Dog";
 }
 
 Dog::Dog( const Dog &)
 {
 	std::cout << "\e[1;30;48m Dog\e[0m ";
-	std::cout << " \e[3mCopy constructor called\e[0m" << std::endl;
+	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 }
 
 
@@ -37,7 +37,7 @@ Dog::Dog( const Dog &)
 Dog::~Dog()
 {
 	std::cout << "\e[1;30;48m Dog\e[0m ";
-	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
+	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 
@@ -45,11 +45,16 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const &)
+Dog &				Dog::operator=( Dog const & rhs)
 {
 	std::cout << "\e[1;30;48m Dog\e[0m ";
-	std::cout << " \e[3mAssignment operator called\e[0m" << std::endl;
+	std::cout << "\e[3mAssignment operator called\e[0m" << std::endl;
 	
+	if ( this != &rhs )
+	{
+		this->type_ = rhs.getType();
+	}
+
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:25:51 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/23 16:08:22 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 16:07:00 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Array {
 		{
 			public:
 				virtual const char * what() const throw() {
-					return ("\e[41m The selected index is out of range \e[0m");
+					return ("\e[41m The selected index is out of range\e[0m");
 				}		
 		};
 		

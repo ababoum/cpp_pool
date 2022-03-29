@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:31:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/28 20:01:51 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/29 16:06:40 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 
 WrongAnimal::WrongAnimal()
 {
-	std::cout << "\e[1;30;43m WrongAnimal \e[0m ";
-	std::cout << " \e[3mDefault constructor called\e[0m" << std::endl;
+	std::cout << "\e[1;30;43m WrongAnimal\e[0m ";
+	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 }
 
 WrongAnimal::WrongAnimal( const WrongAnimal & src )
 {
 	std::cout << "\e[1;30;43m WrongAnimal\e[0m ";
-	std::cout << " \e[3mCopy constructor called\e[0m" << std::endl;
+	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 	
 	this->type_ = src.getType();
 }
@@ -38,7 +38,7 @@ WrongAnimal::WrongAnimal( const WrongAnimal & src )
 WrongAnimal::~WrongAnimal()
 {
 	std::cout << "\e[1;30;43m WrongAnimal\e[0m ";
-	std::cout << " \e[3mDestructor called\e[0m" << std::endl;
+	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 
@@ -49,7 +49,7 @@ WrongAnimal::~WrongAnimal()
 WrongAnimal &				WrongAnimal::operator=( WrongAnimal const & rhs )
 {
 	std::cout << "\e[1;30;43m WrongAnimal\e[0m ";
-	std::cout << " \e[3mAssignment operator called\e[0m" << std::endl;
+	std::cout << "\e[3mAssignment operator called\e[0m" << std::endl;
 	
 	if ( this != &rhs )
 	{
