@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 14:39:18 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 13:49:11 by mababou          ###   ########.fr       */
+/*   Created: 2022/03/30 15:10:45 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/30 15:25:00 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 # include <iostream>
 # include <string>
+# include "AMateria.hpp"
 
-class Brain
+class Cure: public AMateria
 {
 
 	public:
 
-		Brain();
-		Brain( Brain const & src );
-		~Brain();
+		Cure();
+		Cure( Cure const & src );
+		~Cure();
 
-		Brain &		operator=( Brain const & rhs );
+		Cure &		operator=( Cure const & rhs );
 
-		std::string	*getIdeas(void);
+		Cure* 		clone() const;
 
-	private:
-		std::string	_ideas[100];
 };
 
-#endif /* *********************************************************** BRAIN_H */
+std::ostream &			operator<<( std::ostream & o, Cure const & i );
+
+#endif /* ************************************************************ CURE_H */

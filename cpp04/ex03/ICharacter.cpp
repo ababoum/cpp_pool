@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 13:33:41 by mababou          ###   ########.fr       */
+/*   Created: 2022/03/30 15:19:06 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/30 15:36:02 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "ICharacter.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongCat::WrongCat()
+ICharacter::ICharacter()
 {
-	std::cout << "\e[1;30;47m WrongCat\e[0m ";
-	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
-	this->type_ = "WrongCat";
 }
 
-WrongCat::WrongCat( const WrongCat & src)
+ICharacter::ICharacter( const ICharacter & src )
 {
-	std::cout << "\e[1;30;47m WrongCat\e[0m ";
-	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
-	this->type_ = src.getType();
 }
 
 
@@ -35,10 +29,8 @@ WrongCat::WrongCat( const WrongCat & src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-WrongCat::~WrongCat()
+ICharacter::~ICharacter()
 {
-	std::cout << "\e[1;30;47m WrongCat\e[0m ";
-	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 
@@ -46,35 +38,19 @@ WrongCat::~WrongCat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-WrongCat &				WrongCat::operator=( WrongCat const & rhs)
+ICharacter &				ICharacter::operator=( ICharacter const & rhs )
 {
-	std::cout << "\e[1;30;47m WrongCat\e[0m ";
-	std::cout << "\e[3mAssignment operator called\e[0m" << std::endl;
-	
-	if ( this != &rhs )
-	{
-		this->type_ = rhs.getType();
-	}
-	
+	//if ( this != &rhs )
+	//{
+		//this->_value = rhs.getValue();
+	//}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
-{
-	o << i.getType();
-	
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	WrongCat::makeSound(void) const
-{
-	std::cout << "\"Meoow 🐱\"" << std::endl;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 17:54:46 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 14:26:08 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cat: public Animal
 
 		Cat(void);
 		Cat(Cat const & rhs);
-		~Cat();
+		virtual ~Cat();
 
 		Cat &		operator=(Cat const &);
 

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:31:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 16:06:48 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 15:06:25 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,6 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
-
-Animal::Animal()
-{
-	std::cout << "\e[1;30;43m Animal\e[0m ";
-	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
-}
-
-Animal::Animal( const Animal & src )
-{
-	std::cout << "\e[1;30;43m Animal\e[0m ";
-	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
-	
-	this->type_ = src.getType();
-}
 
 
 /*

@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 15:31:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 16:06:51 by mababou          ###   ########.fr       */
+/*   Created: 2022/03/30 15:10:45 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/30 15:25:51 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "Cure.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongAnimal::WrongAnimal()
+Cure::Cure()
 {
-	std::cout << "\e[1;30;43m WrongAnimal\e[0m ";
-	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
+	this->type_ = "cure";
 }
 
-WrongAnimal::WrongAnimal( const WrongAnimal & src )
+Cure::Cure( const Cure & src )
 {
-	std::cout << "\e[1;30;43m WrongAnimal\e[0m ";
-	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
-	
 	this->type_ = src.getType();
 }
 
@@ -35,10 +31,8 @@ WrongAnimal::WrongAnimal( const WrongAnimal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-WrongAnimal::~WrongAnimal()
+Cure::~Cure()
 {
-	std::cout << "\e[1;30;43m WrongAnimal\e[0m ";
-	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
 }
 
 
@@ -46,23 +40,18 @@ WrongAnimal::~WrongAnimal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-WrongAnimal &				WrongAnimal::operator=( WrongAnimal const & rhs )
+Cure &				Cure::operator=( Cure const & rhs )
 {
-	std::cout << "\e[1;30;43m WrongAnimal\e[0m ";
-	std::cout << "\e[3mAssignment operator called\e[0m" << std::endl;
-	
 	if ( this != &rhs )
 	{
 		this->type_ = rhs.getType();
 	}
-	
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i )
+std::ostream &			operator<<( std::ostream & o, Cure const & i )
 {
 	o << i.getType();
-	
 	return o;
 }
 
@@ -71,20 +60,13 @@ std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-std::string		WrongAnimal::getType(void) const
+Cure* 		Cure::clone() const
 {
-	return (this->type_);
+	Cure	*clone = new Cure();
+	
+	return (clone);
 }
 
-void			WrongAnimal::setType(std::string type)
-{
-	this->type_ = type;
-}
-
-void			WrongAnimal::makeSound(void) const
-{
-	std::cout << "\"NOISE\"" << std::endl;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:02 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 17:55:42 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 13:33:59 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ Dog::Dog()
 	this->type_ = "Dog";
 }
 
-Dog::Dog( const Dog &)
+Dog::Dog( const Dog & src)
 {
 	std::cout << "\e[1;30;48m Dog\e[0m ";
 	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
+	this->type_ = src.getType();
 }
 
 

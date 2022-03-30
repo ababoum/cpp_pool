@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 14:39:18 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 13:49:11 by mababou          ###   ########.fr       */
+/*   Created: 2022/03/30 15:38:41 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/30 15:38:42 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include <iostream>
 # include <string>
 
-class Brain
+class Character
 {
 
 	public:
 
-		Brain();
-		Brain( Brain const & src );
-		~Brain();
+		Character();
+		Character( Character const & src );
+		~Character();
 
-		Brain &		operator=( Brain const & rhs );
-
-		std::string	*getIdeas(void);
+		Character &		operator=( Character const & rhs );
 
 	private:
-		std::string	_ideas[100];
+
 };
 
-#endif /* *********************************************************** BRAIN_H */
+std::ostream &			operator<<( std::ostream & o, Character const & i );
+
+#endif /* ******************************************************* CHARACTER_H */

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 16:21:56 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 13:55:54 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ Cat::Cat(void)
 	std::cout << "\e[1;30;47m Cat\e[0m ";
 	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 	this->type_ = "Cat";
+	this->_brain = new Brain();
 }
 
-Cat::Cat( const Cat &)
+Cat::Cat( const Cat & src)
 {
 	std::cout << "\e[1;30;47m Cat\e[0m ";
 	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
+	this->type_ = src.type_;
+	this->_brain = new Brain();
+	*(this->_brain) = *(src._brain);
 }
 
 
@@ -38,6 +42,7 @@ Cat::~Cat()
 {
 	std::cout << "\e[1;30;47m Cat\e[0m ";
 	std::cout << "\e[3mDestructor called\e[0m" << std::endl;
+	delete this->_brain;
 }
 
 
@@ -53,6 +58,7 @@ Cat &				Cat::operator=( Cat const & rhs)
 	if ( this != &rhs )
 	{
 		this->type_ = rhs.getType();
+		*(this->_brain) = *(rhs._brain);
 	}
 	
 	return *this;
@@ -78,6 +84,11 @@ void	Cat::makeSound(void) const
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+Brain		*Cat::getBrain(void)
+{
+	return (this->_brain);
+}
 
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 16:21:50 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 14:31:48 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,17 @@ class Cat: public Animal
 
 	public:
 
-		Cat();
-		Cat(Cat const &);
-		~Cat();
+		Cat(void);
+		Cat(Cat const & rhs);
+		virtual ~Cat();
 
 		Cat &		operator=(Cat const &);
+
 		void		makeSound(void) const;
+		Brain		*getBrain(void);
 
 	private:
 		Brain	*_brain;
-
 };
 
 std::ostream &			operator<<( std::ostream & o, Cat const & i );

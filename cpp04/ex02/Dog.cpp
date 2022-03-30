@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:02 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 16:06:50 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 13:48:32 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ Dog::Dog()
 	this->_brain = new Brain();
 }
 
-Dog::Dog( const Dog & src )
+Dog::Dog( const Dog & src)
 {
 	std::cout << "\e[1;30;48m Dog\e[0m ";
 	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
+	this->type_ = src.type_;
 	this->_brain = new Brain();
-	for (int i = 0; i < 100; i++)
-		this->_brain = src._brain;
+	*(this->_brain) = *(src._brain);
 }
 
 
@@ -50,11 +50,17 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const &)
+Dog &				Dog::operator=( Dog const & rhs)
 {
 	std::cout << "\e[1;30;48m Dog\e[0m ";
 	std::cout << "\e[3mAssignment operator called\e[0m" << std::endl;
 	
+	if ( this != &rhs )
+	{
+		this->type_ = rhs.getType();
+		*(this->_brain) = *(rhs._brain);
+	}
+
 	return *this;
 }
 
@@ -79,5 +85,9 @@ void	Dog::makeSound(void) const
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+Brain		*Dog::getBrain(void)
+{
+	return (this->_brain);
+}
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:39:18 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 14:54:58 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 13:49:07 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ Brain::Brain()
 Brain::Brain( const Brain & src )
 {
 	std::cout << "Brain is copied" << std::endl;
-	for (int i = 0; i < 100; i++)
-		this->_idea[i] = src._idea[i];
+	
+	int i;
+	for (i = 0; i < 100; i++)
+		this->_ideas[i] = src._ideas[i];
 }
 
 
@@ -46,8 +48,9 @@ Brain &				Brain::operator=( Brain const & rhs )
 {
 	if ( this != &rhs )
 	{
-		for (int i = 0; i < 100; i++)
-			this->_idea[i] = rhs._idea[i];
+		int i;
+		for (i = 0; i < 100; i++)
+			this->_ideas[i] = rhs._ideas[i];
 	}
 	return *this;
 }
@@ -60,6 +63,11 @@ Brain &				Brain::operator=( Brain const & rhs )
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+std::string	*Brain::getIdeas(void)
+{
+	return (this->_ideas);
+}
 
 
 /* ************************************************************************** */

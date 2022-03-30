@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:39:18 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 20:01:33 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 13:49:07 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Brain::Brain( const Brain & src )
 	
 	int i;
 	for (i = 0; i < 100; i++)
-		this->_idea[i] = src._idea[i];
+		this->_ideas[i] = src._ideas[i];
 }
 
 
@@ -50,7 +50,7 @@ Brain &				Brain::operator=( Brain const & rhs )
 	{
 		int i;
 		for (i = 0; i < 100; i++)
-			this->_idea[i] = rhs._idea[i];
+			this->_ideas[i] = rhs._ideas[i];
 	}
 	return *this;
 }
@@ -64,7 +64,10 @@ Brain &				Brain::operator=( Brain const & rhs )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-
+std::string	*Brain::getIdeas(void)
+{
+	return (this->_ideas);
+}
 
 
 /* ************************************************************************** */

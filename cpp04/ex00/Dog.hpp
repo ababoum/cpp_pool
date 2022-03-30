@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:02 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 17:54:33 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 14:26:12 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Dog: public Animal
 
 		Dog();
 		Dog(Dog const & rhs);
-		~Dog();
+		virtual ~Dog();
 
 		Dog &		operator=(Dog const &);
 		

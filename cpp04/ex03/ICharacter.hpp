@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 14:39:18 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 13:49:11 by mababou          ###   ########.fr       */
+/*   Created: 2022/03/30 15:19:06 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/30 15:35:54 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
 # include <iostream>
 # include <string>
 
-class Brain
+class ICharacter
 {
-
 	public:
 
-		Brain();
-		Brain( Brain const & src );
-		~Brain();
-
-		Brain &		operator=( Brain const & rhs );
-
-		std::string	*getIdeas(void);
-
-	private:
-		std::string	_ideas[100];
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
 };
 
-#endif /* *********************************************************** BRAIN_H */
+
+#endif /* ****************************************************** ICHARACTER_H */

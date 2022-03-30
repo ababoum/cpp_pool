@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:09 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 16:21:56 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 13:33:15 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ Cat::Cat(void)
 	this->type_ = "Cat";
 }
 
-Cat::Cat( const Cat &)
+Cat::Cat( const Cat & src)
 {
 	std::cout << "\e[1;30;47m Cat\e[0m ";
 	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
+	this->type_ = src.getType();
 }
 
 
