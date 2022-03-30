@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:10:45 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 17:59:09 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 18:33:50 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef Ice_HPP
+# define Ice_HPP
 
 # include <iostream>
 # include <string>
 # include "AMateria.hpp"
 
-class Cure: public AMateria
+class Ice: public AMateria
 {
 
 	public:
 
-		Cure();
-		Cure( Cure const & src );
-		~Cure();
+		Ice();
+		Ice(Ice const & src);
+		~Ice();
 
-		Cure &		operator=( Cure const & rhs );
+		Ice &		operator=( Ice const & rhs );
 
-		Cure* 		clone() const;
+		Ice* 		clone() const;
 		void 		use(ICharacter& target);
 };
 
-#endif /* ************************************************************ CURE_H */
+#endif /* ************************************************************ Ice_H */

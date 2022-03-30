@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 15:33:38 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 15:35:40 by mababou          ###   ########.fr       */
+/*   Created: 2022/03/30 15:10:45 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/30 20:13:28 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IMateriaSource.hpp"
+#include "Ice.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-IMateriaSource::IMateriaSource()
+Ice::Ice(): AMateria("ice")
 {
 }
 
-IMateriaSource::IMateriaSource( const IMateriaSource & src )
+Ice::Ice( const Ice & src ): AMateria("ice")
 {
+	this->type_ = src.getType();
 }
 
 
@@ -29,7 +30,7 @@ IMateriaSource::IMateriaSource( const IMateriaSource & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-IMateriaSource::~IMateriaSource()
+Ice::~Ice()
 {
 }
 
@@ -38,20 +39,31 @@ IMateriaSource::~IMateriaSource()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-IMateriaSource &				IMateriaSource::operator=( IMateriaSource const & rhs )
+Ice &				Ice::operator=( Ice const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		this->type_ = rhs.getType();
+	}
 	return *this;
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+Ice* 		Ice::clone() const
+{
+	Ice	*clone = new Ice();
+	
+	return (clone);
+}
+
+void 		Ice::use(ICharacter& target)
+{
+	std::cout << "\"*shoots an ice bolt at " << target.getName() << "*\"";
+	std::cout << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

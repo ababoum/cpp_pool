@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:38:31 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 15:38:32 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 19:48:24 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # include <iostream>
 # include <string>
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
-class MateriaSource
+class MateriaSource: public IMateriaSource
 {
 
 	public:
@@ -27,10 +29,14 @@ class MateriaSource
 
 		MateriaSource &		operator=( MateriaSource const & rhs );
 
+		void		learnMateria(AMateria* srcMateria);
+		AMateria*	createMateria(std::string const & type);
+		AMateria	**getMateriaList(void);
+
 	private:
+		AMateria	*_materia_list[4];
+		int			_cursor;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i );
 
 #endif /* *************************************************** MATERIASOURCE_H */

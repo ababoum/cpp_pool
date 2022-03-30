@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:38:41 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 15:38:42 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 20:11:13 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,30 @@
 
 # include <iostream>
 # include <string>
+# include "ICharacter.hpp"
 
-class Character
+class Character: public ICharacter
 {
 
 	public:
 
 		Character();
+		Character(std::string name);
 		Character( Character const & src );
 		~Character();
 
 		Character &		operator=( Character const & rhs );
 
+		std::string const & getName() const;
+		void 				equip(AMateria* m);
+		void 				unequip(int idx);
+		void 				use(int idx, ICharacter& target);
+		// AMateria			**getInventory(void);
+
 	private:
+		AMateria		*_inventory[4];
+		int				_cursor;
+		std::string		_name;
 
 };
 

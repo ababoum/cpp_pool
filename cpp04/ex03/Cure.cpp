@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:10:45 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 15:25:51 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 20:13:24 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cure::Cure()
+Cure::Cure(): AMateria("cure")
 {
-	this->type_ = "cure";
 }
 
-Cure::Cure( const Cure & src )
+Cure::Cure( const Cure & src ): AMateria("cure")
 {
 	this->type_ = src.getType();
 }
@@ -49,13 +48,6 @@ Cure &				Cure::operator=( Cure const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i )
-{
-	o << i.getType();
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -67,6 +59,11 @@ Cure* 		Cure::clone() const
 	return (clone);
 }
 
+void 		Cure::use(ICharacter& target)
+{
+	std::cout << "\"*heals " << target.getName() << "'s wounds*\"";
+	std::cout << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

@@ -2,18 +2,22 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= animal_abstract
+NAME 		= materia_adventure
 
 SRCS		= ./main.cpp \
-				./Animal.cpp \
-				./Cat.cpp \
-				./Dog.cpp \
-				./Brain.cpp
+				./AMateria.cpp \
+				./Character.cpp \
+				./Cure.cpp \
+				./Ice.cpp \
+				./MateriaSource.cpp
 
-INCL		= ./Animal.hpp \
-				./Cat.hpp \
-				./Dog.hpp \
-				./Brain.hpp
+INCL		= ./AMateria.hpp \
+				./Character.hpp \
+				./Cure.hpp \
+				./Ice.hpp \
+				./ICharacter.hpp \
+				./IMateriaSource.hpp \
+				./MateriaSource.hpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

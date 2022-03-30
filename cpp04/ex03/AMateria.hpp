@@ -1,8 +1,4 @@
-std::ostream &			operator<<( std::ostream & o, ICharacter const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
@@ -10,7 +6,7 @@ std::ostream &			operator<<( std::ostream & o, ICharacter const & i )
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:59:30 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 15:09:44 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 19:34:00 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +15,9 @@ std::ostream &			operator<<( std::ostream & o, ICharacter const & i )
 
 # include <iostream>
 # include <string>
+# include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
@@ -32,7 +31,7 @@ class AMateria
 
 		std::string const &	getType() const; //Returns the materia type
 		virtual AMateria*	clone() const = 0;
-		virtual void 		use(ICharacter& target);
+		virtual void 		use(ICharacter& target) = 0;
 
 };
 

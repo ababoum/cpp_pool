@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:59:30 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 14:59:31 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/30 19:27:55 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,9 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+AMateria::AMateria(std::string const & type): type_(type)
 {
 }
-
-AMateria::AMateria( const AMateria & src )
-{
-}
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -38,18 +33,9 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AMateria &				AMateria::operator=( AMateria const & rhs )
-{
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	return *this;
-}
-
 std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << i.getType();
 	return o;
 }
 
@@ -58,10 +44,13 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string const &	AMateria::getType() const
+{
+	return (this->type_);
+}
 
 /* ************************************************************************** */
