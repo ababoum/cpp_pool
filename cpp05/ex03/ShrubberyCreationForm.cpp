@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 11:04:19 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/31 19:06:46 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/31 19:20:50 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form()
+ShrubberyCreationForm::ShrubberyCreationForm(): Form("Shrubbery", 150, 150)
 {
 }
 

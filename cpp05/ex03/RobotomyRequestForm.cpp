@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 11:04:19 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/31 19:06:46 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/31 19:20:39 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form()
+RobotomyRequestForm::RobotomyRequestForm(): Form("Robotomy", 150, 150)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ): \
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ): \
 														Form(src)
 {
 	this->_target = src._target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): \
-	Form("Shrubbery", _sign_grade, _exe_grade), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): \
+	Form("Robotomy", _sign_grade, _exe_grade), _target(target)
 {
 }
 
@@ -35,7 +35,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target): \
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
@@ -44,7 +44,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
+RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -57,26 +57,25 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	if (!this->getIsSigned() || executor.getGrade() > getGradeExe())
 		throw ConditionsNotRespectedException();
 	else
 	{
-		std::ofstream	file;
-		std::string		filename;
-
-		filename = this->_target + "_shrubbery";
+		std::cout << "*VRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR*" << std::endl;
 		
-		file.open(filename.data(), std::ofstream::out | std::ofstream::trunc);
-		if (!file) {
-			std::cerr << "\e[31mAn error occured while creating the output file\e[0m" << std::endl;
-			return ;
+		int prob;
+
+		srand(time(NULL));
+		prob = rand() % 2;
+		
+		if (prob == 0) {
+			std::cout << this->_target << " has been successfully robotomized 🤖" <<std::endl;
 		}
-		file << TREE;
-		file << TREE;
-		file << TREE;
-		file.close();
+		else {
+			std::cout << "The robotomization operation has failed 😡" <<std::endl;
+		}
 	}
 }
 

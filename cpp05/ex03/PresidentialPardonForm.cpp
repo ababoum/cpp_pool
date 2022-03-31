@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 11:04:19 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/31 19:06:46 by mababou          ###   ########.fr       */
+/*   Created: 2022/03/31 18:26:33 by mababou           #+#    #+#             */
+/*   Updated: 2022/03/31 19:21:07 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form()
+PresidentialPardonForm::PresidentialPardonForm(): Form("Presidential Pardon", 150, 150)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ): \
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ): \
 														Form(src)
 {
 	this->_target = src._target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): \
-	Form("Shrubbery", _sign_grade, _exe_grade), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target): \
+	Form("Presidential Pardon", _sign_grade, _exe_grade), _target(target)
 {
 }
 
@@ -35,7 +35,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target): \
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
@@ -44,7 +44,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
+PresidentialPardonForm & PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -57,26 +57,13 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (!this->getIsSigned() || executor.getGrade() > getGradeExe())
 		throw ConditionsNotRespectedException();
 	else
 	{
-		std::ofstream	file;
-		std::string		filename;
-
-		filename = this->_target + "_shrubbery";
-		
-		file.open(filename.data(), std::ofstream::out | std::ofstream::trunc);
-		if (!file) {
-			std::cerr << "\e[31mAn error occured while creating the output file\e[0m" << std::endl;
-			return ;
-		}
-		file << TREE;
-		file << TREE;
-		file << TREE;
-		file.close();
+		std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 	}
 }
 

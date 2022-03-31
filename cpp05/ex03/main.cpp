@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:55:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/31 18:58:06 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/31 19:53:48 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
+# include "Intern.hpp"
 
 int	main(void)
 {
@@ -22,15 +23,19 @@ int	main(void)
 	{
 		try
 		{
-			Bureaucrat gerard("Gerard", 1);
+			Bureaucrat	gerard("Gerard", 1);
+			Intern		someRandomIntern;
+			Form*		rrf;
 
 			std::cout << gerard << std::endl;
 
-			ShrubberyCreationForm	tree("Claude");
+			rrf = someRandomIntern.makeForm("Shrubbery", "Garden");
 			
-			tree.beSigned(gerard);
-			std::cout << tree << std::endl;
-			gerard.executeForm(tree);
+			rrf->beSigned(gerard);
+			std::cout << *rrf << std::endl;
+			gerard.executeForm(*rrf);
+
+			delete rrf;
 		}
 		catch (std::exception & e)
 		{
@@ -41,15 +46,19 @@ int	main(void)
 	{
 		try
 		{
-			Bureaucrat gerard("Gerard", 145);
+			Bureaucrat	gerard("Gerard", 145);
+			Intern		someRandomIntern;
+			Form*		rrf;
 
 			std::cout << gerard << std::endl;
 
-			ShrubberyCreationForm	tree("Claude");
+			rrf = someRandomIntern.makeForm("CERFA", "Gerard");
 			
-			tree.beSigned(gerard);
-			std::cout << tree << std::endl;
-			gerard.executeForm(tree);
+			rrf->beSigned(gerard);
+			std::cout << rrf << std::endl;
+			gerard.executeForm(*rrf);
+
+			delete rrf;
 		}
 		catch (std::exception & e)
 		{
@@ -61,14 +70,19 @@ int	main(void)
 		try
 		{
 			Bureaucrat	robert("Robert", 10);
+			Intern		someRandomIntern;
+			Form*		rrf;
+			
 			
 			std::cout << robert << std::endl;
 			
-			RobotomyRequestForm		form111("Bob");
+			rrf = someRandomIntern.makeForm("Robotomy", "Bender");
 
-			form111.beSigned(robert);
-			std::cout << form111 << std::endl;
-			robert.executeForm(form111);	
+			rrf->beSigned(robert);
+			std::cout << *rrf << std::endl;
+			robert.executeForm(*rrf);
+			
+			delete rrf;
 		}
 		catch (std::exception & e)
 		{
@@ -79,8 +93,10 @@ int	main(void)
 	{
 		try
 		{
-			Bureaucrat	ministre("Ministre", 25);
+			Bureaucrat	ministre("Minister", 25);
 			Bureaucrat	president(ministre);
+			Intern		someRandomIntern;
+			Form*		rrf;
 
 			for (int i = 0; i < 20; i++)
 				president.gradeIncrement();
@@ -88,14 +104,14 @@ int	main(void)
 			std::cout << ministre << std::endl;
 			std::cout << president << std::endl;
 			
-			PresidentialPardonForm		f1("Trump");
-			f1.beSigned(ministre);			
-			PresidentialPardonForm		f2(f1);
+			rrf = someRandomIntern.makeForm("Presidential Pardon", "Trump");
+			rrf->beSigned(ministre);
 
-			std::cout << f1 << std::endl;
-			std::cout << f2 << std::endl;
+			std::cout << *rrf << std::endl;
 			
-			ministre.executeForm(f2);	
+			ministre.executeForm(*rrf);
+			
+			delete rrf;
 		}
 		catch (std::exception & e)
 		{
@@ -106,8 +122,10 @@ int	main(void)
 	{
 		try
 		{
-			Bureaucrat	ministre("Ministre", 25);
+			Bureaucrat	ministre("Minister", 25);
 			Bureaucrat	president(ministre);
+			Intern		someRandomIntern;
+			Form*		rrf;
 
 			for (int i = 0; i < 20; i++)
 				president.gradeIncrement();
@@ -115,14 +133,14 @@ int	main(void)
 			std::cout << ministre << std::endl;
 			std::cout << president << std::endl;
 			
-			PresidentialPardonForm		f1("Trump");
-			f1.beSigned(ministre);			
-			PresidentialPardonForm		f2(f1);
+			rrf = someRandomIntern.makeForm("Presidential Pardon", "Trump");
+			rrf->beSigned(ministre);
 
-			std::cout << f1 << std::endl;
-			std::cout << f2 << std::endl;
-			
-			president.executeForm(f2);	
+			std::cout << *rrf << std::endl;
+
+			president.executeForm(*rrf);
+
+			delete rrf;
 		}
 		catch (std::exception & e)
 		{

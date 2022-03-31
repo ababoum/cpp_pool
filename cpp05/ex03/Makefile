@@ -2,20 +2,22 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= forms_process
+NAME 		= intern_process
 
 SRCS		= ./main.cpp \
 				./Bureaucrat.cpp \
 				./Form.cpp \
 				./ShrubberyCreationForm.cpp \
 				./RobotomyRequestForm.cpp \
-				./PresidentialPardonForm.cpp
+				./PresidentialPardonForm.cpp \
+				./Intern.cpp
 
 INCL		= ./Bureaucrat.hpp \
 				./Form.hpp \
 				./ShrubberyCreationForm.hpp \
 				./RobotomyRequestForm.hpp \
-				./PresidentialPardonForm.hpp
+				./PresidentialPardonForm.hpp \
+				./Intern.hpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
