@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:55:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/18 13:36:24 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/31 09:20:38 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,28 @@ int	main(void)
 		Bureaucrat anonyme;
 		Bureaucrat jacob("Jacob");
 		Bureaucrat robert("Robert", 140);
-		Bureaucrat albert("Albert", 151);
-		Bureaucrat gerard("Gerard", -3);
+		Bureaucrat robert2(robert);
+		// Bureaucrat albert("Albert", 151);
+		// Bureaucrat gerard("Gerard", -3);
 
+		std::cout << jacob << std::endl;
 		std::cout << robert << std::endl;
-		std::cout << albert << std::endl;
-		std::cout << gerard << std::endl;
+		std::cout << robert2 << std::endl;
 
-		albert.gradeDecrement();
-		albert.gradeDecrement();
-		gerard.gradeIncrement();
+		std::cout << "======================================" << std::endl;
 
+		for (int i = 0; i < 9; i++)
+			robert.gradeDecrement();
 		std::cout << robert << std::endl;
-		std::cout << albert << std::endl;
-		std::cout << gerard << std::endl;
+		
+		for (int i = 0; i < 140; i++)
+			robert2.gradeIncrement();
+		std::cout << robert2 << std::endl;
+				
 	}
-	catch (Bureaucrat::GradeTooLowException e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException e)
+	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 	}	
-	
 	return (0);
 }
