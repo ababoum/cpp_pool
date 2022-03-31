@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:57:16 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/17 14:28:09 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/31 10:09:18 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main()
 	const WrongAnimal*	i = new WrongCat();
 	WrongAnimal*		i2 = new WrongCat();
 	WrongAnimal*		i3 = new WrongCat();
+	WrongCat			cat;
 	
 	*i3 = *i2;
 	
@@ -25,6 +26,7 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	i3->makeSound(); //will output the cat sound!
 	meta->makeSound();
+	cat.makeSound();
 
 	delete meta;
 	delete i;

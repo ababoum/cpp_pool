@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:31:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/30 15:07:09 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/31 10:09:49 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Animal
 {
 	public:
-
 		virtual ~Animal();
 		
 		std::string		getType(void) const;
