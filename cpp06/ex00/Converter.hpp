@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:11:40 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/21 20:03:05 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/31 21:06:52 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <string>
 # include <sstream>
 # include <limits>
+
+# define CHAR	0
+# define INT	1
+# define FLOAT	2
+# define DOUBLE	3
+# define OTHER	4
 
 class Converter
 {
@@ -39,9 +45,9 @@ class Converter
 		std::string			getInput(void) const;
 
 	private:
-		std::string		_detect_type(std::string input);
+		int				_detect_type(std::string input);
 
-		std::string		_type;
+		int				_type;
 		std::string		_input;
 		char			_c;
 		int				_int;

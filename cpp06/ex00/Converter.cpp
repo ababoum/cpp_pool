@@ -6,63 +6,12 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:11:40 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/21 20:38:35 by mababou          ###   ########.fr       */
+/*   Updated: 2022/03/31 21:08:37 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
-Converter::Converter()
-{
-}
-
-Converter::Converter(std::string input): _input(input)
-{
-	this->_type = _detect_type(this->_input);
-}
-
-Converter::Converter( const Converter & src )
-{
-	this->_input = src._input;
-}
-
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
-
-Converter::~Converter()
-{
-}
-
-
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
-
-Converter &				Converter::operator=( Converter const & rhs )
-{
-	if ( this != &rhs )
-	{
-		this->_input = rhs.getInput();
-	}
-	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Converter const & i )
-{
-	o << i.getInput();
-	return o;
-}
-
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
 
 size_t	char_pos(const std::string& str, char c)
 {
@@ -94,9 +43,9 @@ static bool isInt(const std::string& str)
 {
 	double	d;
 	size_t	i;
-	
+
     for (i = 0; i < str.length(); i++) {
-        if (!std::isdigit(str[i]))
+        if (!std::isdigit(str[i]) && str[i] != '-' && i != 0)
 			return false;
     }
 	std::istringstream iss (str);
@@ -155,64 +104,129 @@ static bool isDouble(const std::string& str)
 	return true;
 }
 
-std::string			Converter::_detect_type(std::string input)
+
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+Converter::Converter()
+{
+}
+
+Converter::Converter(std::string input): _input(input)
+{
+	this->_type = _detect_type(this->_input);
+}
+
+Converter::Converter( const Converter & src )
+{
+	this->_input = src._input;
+}
+
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
+Converter::~Converter()
+{
+}
+
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+Converter &				Converter::operator=( Converter const & rhs )
+{
+	if ( this != &rhs )
+	{
+		this->_input = rhs.getInput();
+	}
+	return *this;
+}
+
+std::ostream &			operator<<( std::ostream & o, Converter const & i )
+{
+	o << i.getInput();
+	return o;
+}
+
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
+
+int			Converter::_detect_type(std::string input)
 {
 	if (input.length() == 0)
 	{
-		this->_c = 0;
-		return ("char");
+		this->_int = 0;
+		return (INT);
 	}
 	else if (input.length() == 1)
 	{
-		std::istringstream iss (input);
-		iss >> this->_c;
-		return ("char");
+		if (input.at(0) >= '0' && input.at(0) <= '9') {
+			std::istringstream iss (input);
+			iss >> this->_int;
+			return (INT);
+		}
+		else {
+			std::istringstream iss (input);
+			iss >> this->_c;
+			return (CHAR);
+		}
 	}
 	else if (isInt(input))
 	{
 		std::istringstream iss (input);
 		iss >> this->_int;
-		return ("int");		
+		return (INT);		
 	}
 	else if (isFloat(input))
 	{
 		std::istringstream iss (input);
 		iss >> this->_float;
-		return ("float");	
+		return (FLOAT);	
 	}
 	else if (isDouble(input))
 	{
 		std::istringstream iss (input);
 		iss >> this->_double;
-		return ("double");
+		return (DOUBLE);
 	}
 	else
 	{
-		return ("nan");
+		return (OTHER);
 	}
 }
 
 std::string			Converter::toChar(void)
 {
-	double		d;
 	std::string	output;
-	int			c;
-	
-	std::istringstream iss (this->_input);
-	iss >> d;
 
-	if (!(this->_input.compare("nan") && this->_input.compare("nanf") && \
-		this->_input.compare("+inf") && this->_input.compare("+inff") && \
-		this->_input.compare("-inf") && this->_input.compare("-inff")))
-		output = "impossible";
-	else
+	switch (_type)
 	{
-		c = static_cast<int>(d);
-		if (c < 32 || c > 126)
+	case CHAR:
+		if (_c < 32 || _c > 126)
 			output = "Non displayable";
 		else
-			output += static_cast<char>(c);
+			output += static_cast<char>(_c);
+		break;
+		
+	case INT:
+		if (_int >= 0 && _int <= 127 && (_int < 32 || _int > 126))
+			output = "Non displayable";
+		else if (_int < 0 || _int > 127)
+			output = "Impossible";
+		else
+			output += static_cast<char>(_int);
+		break;
+	
+	default:
+		break;
 	}
+
 	return (output);
 }
 
