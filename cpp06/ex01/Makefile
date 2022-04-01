@@ -2,12 +2,11 @@ CXX			= @c++
 
 CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
 
-NAME 		= convert
+NAME 		= serialize
 
-SRCS		= ./main.cpp \
-				./Converter.cpp
+SRCS		= ./main.cpp 
 
-INCL		= ./Converter.hpp
+INCL		= 
 
 OBJS		= $(SRCS:.cpp=.o)
 
