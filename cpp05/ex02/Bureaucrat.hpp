@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:04:01 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/31 14:23:13 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/01 18:33:14 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ class Bureaucrat
 	private:
 		const std::string	_name;
 		int					_grade;
+
+		static const int	_lowestGrade = 150;
+		static const int	_highestGrade = 1;
 
 };
 

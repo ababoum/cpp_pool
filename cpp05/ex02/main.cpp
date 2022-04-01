@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:55:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/31 18:58:06 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/01 19:01:31 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ int	main(void)
 			
 			std::cout << robert << std::endl;
 			
-			RobotomyRequestForm		form111("Bob");
+			RobotomyRequestForm		robot("Bob");
 
-			form111.beSigned(robert);
-			std::cout << form111 << std::endl;
-			robert.executeForm(form111);	
+			robot.beSigned(robert);
+			std::cout << robot << std::endl;
+			robert.executeForm(robot);	
 		}
 		catch (std::exception & e)
 		{
@@ -80,7 +80,7 @@ int	main(void)
 		try
 		{
 			Bureaucrat	ministre("Ministre", 25);
-			Bureaucrat	president(ministre);
+			Bureaucrat	president("President", 25);
 
 			for (int i = 0; i < 20; i++)
 				president.gradeIncrement();
@@ -107,7 +107,7 @@ int	main(void)
 		try
 		{
 			Bureaucrat	ministre("Ministre", 25);
-			Bureaucrat	president(ministre);
+			Bureaucrat	president("President", 25);
 
 			for (int i = 0; i < 20; i++)
 				president.gradeIncrement();

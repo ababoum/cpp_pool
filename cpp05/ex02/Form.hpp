@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:10:55 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/31 14:24:02 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/01 18:51:57 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ class Form
 		const int			_grade_to_sign;
 		const int			_grade_to_execute;
 
+		static const int	_lowestGrade = 150;
+		static const int	_highestGrade = 1;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:10:55 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 16:06:59 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/01 18:42:18 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,15 @@ class Form
 
 		void			beSigned(Bureaucrat signer);
 
+
 	private:
 		const std::string	_name;
 		bool				_is_signed;
 		const int			_grade_to_sign;
 		const int			_grade_to_execute;
 
+		static const int	_lowestGrade = 150;
+		static const int	_highestGrade = 1;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

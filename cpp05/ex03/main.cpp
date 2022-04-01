@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:55:33 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/31 19:53:48 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/01 19:02:40 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	main(void)
 		try
 		{
 			Bureaucrat	ministre("Minister", 25);
-			Bureaucrat	president(ministre);
+			Bureaucrat	president("President", 25);
 			Intern		someRandomIntern;
 			Form*		rrf;
 
@@ -123,7 +123,7 @@ int	main(void)
 		try
 		{
 			Bureaucrat	ministre("Minister", 25);
-			Bureaucrat	president(ministre);
+			Bureaucrat	president("President", 25);
 			Intern		someRandomIntern;
 			Form*		rrf;
 

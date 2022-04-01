@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:10:55 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/31 10:57:54 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/01 18:49:38 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,26 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form(): _is_signed(false), _grade_to_sign(150), _grade_to_execute(150)
+Form::Form(): _is_signed(false), _grade_to_sign(_lowestGrade), \
+									_grade_to_execute(_lowestGrade)
 {
 	std::cout << " \e[1;39;44m Form \e[0m ";
 	std::cout << "\e[3mDefault constructor called\e[0m" << std::endl;
 }
 
-Form::Form( const Form & src ):_name(src.getName()), _is_signed(false), \
+Form::Form( const Form & src ):_name(src.getName()), \
+								_is_signed(src.getIsSigned()), \
 								_grade_to_sign(src.getGradeSign()), \
 								_grade_to_execute(src.getGradeExe())
 {
 	std::cout << " \e[1;39;44m Form \e[0m ";
 	std::cout << "\e[3mCopy constructor called\e[0m" << std::endl;
 
-	if (this->_grade_to_sign > 150 || this->_grade_to_execute > 150)
+	if (this->_grade_to_sign > _lowestGrade ||
+		this->_grade_to_execute > _lowestGrade)
 		throw GradeTooLowException();
-	else if (this->_grade_to_sign < 1 || this->_grade_to_execute < 1)
+	else if (this->_grade_to_sign < _highestGrade || 
+		this->_grade_to_execute < _highestGrade)
 		throw GradeTooHighException();
 }
 
@@ -42,9 +46,11 @@ Form::Form(std::string name, int grade_to_sign, int grade_to_exe): \
 	std::cout << " \e[1;39;44m Form \e[0m ";
 	std::cout << "\e[3mParameters constructor called\e[0m" << std::endl;
 
-	if (this->_grade_to_sign > 150 || this->_grade_to_execute > 150)
+	if (this->_grade_to_sign > _lowestGrade ||
+		this->_grade_to_execute > _lowestGrade)
 		throw GradeTooLowException();
-	else if (this->_grade_to_sign < 1 || this->_grade_to_execute < 1)
+	else if (this->_grade_to_sign < _highestGrade || 
+		this->_grade_to_execute < _highestGrade)
 		throw GradeTooHighException();
 }
 
