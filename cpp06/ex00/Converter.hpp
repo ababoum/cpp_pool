@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:11:40 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/01 15:31:55 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/01 21:14:27 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <string>
 # include <sstream>
 # include <limits>
-# include <cmath>
+# include <iomanip>
+// # include <cmath>
 
 # define CHAR	0
 # define INT	1

@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:11:40 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/01 15:48:13 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/01 21:18:25 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,12 @@ static bool isInt(const std::string& str)
 	size_t	i = 0;
 
     while (i < str.length()) {
-        if ((str[i] == '-' || str[i] == '+') && i == 0 && str.length() != 1))
+        if ((str[i] == '-' || str[i] == '+') && i == 0 && str.length() != 1)
 			i++;
 		else {
 			if (!std::isdigit(str[i]))
 				return false;
+			i++;
 		}
     }
 	std::istringstream iss (str);
@@ -64,30 +65,35 @@ static bool isInt(const std::string& str)
 static bool isFloat(const std::string& str)
 {
 	double	d;
-	size_t	i;
+	size_t	i = 0;
 
 	if (!str.compare("-inff") || !str.compare("+inff") ||
 		 !str.compare("nanf")) {
 		return true;
 	}
 	
-    for (i = 0; i < str.length(); i++) {
-        if ((!std::isdigit(str[i]) && str[i] != 'f' && str[i] != '.') || 
-			((str[i] == '-' || str[i] == '+') && i != 0))
-			return false;
+    while (i < str.length()) {
+		if ((str[i] == '-' || str[i] == '+') && i == 0 && str.length() != 1)
+			i++;
+		else {
+			if (!std::isdigit(str[i]) && str[i] != 'f' && str[i] != '.')
+				return false;
+			i++;
+		}
     }
-	if (char_count(str, 'f') > 1 || char_count(str, '.') > 1 ||
-	char_pos(str, 'f') != str.length() - 1 ||
-	(char_count(str, 'f') == 1 && str.length() == 1) ||
-	(char_count(str, '.') == 1 && str.length() < 4) ||
-	(char_count(str, 'f') == 1 && char_count(str, '.') == 1 && 
-		char_pos(str, 'f') - char_pos(str, '.') == 1))
+	if (char_count(str, 'f') > 1 || 
+		char_count(str, '.') > 1 ||
+		char_pos(str, 'f') != str.length() - 1 ||
+		(char_count(str, 'f') == 1 && str.length() == 1) ||
+		(char_count(str, '.') == 1 && str.length() < 4) ||
+		(char_count(str, 'f') == 1 && char_count(str, '.') == 1 && 
+			char_pos(str, 'f') - char_pos(str, '.') == 1))
 		return false;
 	std::istringstream iss (str);
 	iss >> d;
 	
 	if (d > std::numeric_limits<float>::max() ||
-	d < std::numeric_limits<float>::min())
+	d < - std::numeric_limits<float>::max())
 		return false;
 	return true;
 }
@@ -95,23 +101,28 @@ static bool isFloat(const std::string& str)
 static bool isDouble(const std::string& str)
 {
 	double	d;
-	size_t	i;
+	size_t	i = 0;
+
+	if (!str.compare("-inf") || !str.compare("+inf") ||
+		 !str.compare("nan")) {
+		return true;
+	}
 	
-    for (i = 0; i < str.length(); i++) {
-        if ((!std::isdigit(str[i]) && str[i] != 'f' && str[i] != '.') || 
-			((str[i] == '-' || str[i] == '+') && i != 0))
-			return false;
+	while (i < str.length()) {
+		if ((str[i] == '-' || str[i] == '+') && i == 0 && str.length() != 1)
+			i++;
+		else {
+			if (!std::isdigit(str[i]) && str[i] != '.')
+				return false;
+			i++;
+		}
     }
-	if (char_count(str, 'f') > 1 || char_count(str, '.') > 1 ||
-	(char_count(str, 'f') == 1 && str.length() == 1) ||
-	(char_count(str, '.') == 1 && str.length() < 4) ||
-	(char_count(str, 'f') == 1 && char_count(str, '.') == 1 && 
-		(char_pos(str, 'f') - char_pos(str, '.') == 1 ||
-		char_pos(str, 'f') - char_pos(str, '.') < 0)))
+	if (char_count(str, '.') > 1 ||
+		(char_count(str, '.') == 1 && str.length() < 3))
 		return false;
 	std::istringstream iss (str);
 	iss >> d;
-	
+
 	return true;
 }
 
@@ -127,7 +138,7 @@ Converter::Converter()
 Converter::Converter(std::string input): _input(input)
 {
 	this->_type = _detect_type(this->_input);
-	std::cout << "Detected type: " << _type << std::endl;
+	// std::cout << "Detected type: " << _type << std::endl;
 }
 
 Converter::Converter( const Converter & src )
@@ -260,7 +271,7 @@ std::string			Converter::toChar(void)
 	case FLOAT:
 		if (_float >= 0 && _float <= 127 && (_float < 32 || _float > 126))
 			output = "Non displayable";
-		else if (_float < 0 || _float > 127)
+		else if (_float < 0 || _float > 127 || _float != _float)
 			output = "Impossible";
 		else {
 			output += "'";
@@ -272,7 +283,7 @@ std::string			Converter::toChar(void)
 	case DOUBLE:
 		if (_double >= 0 && _double <= 127 && (_double < 32 || _double > 126))
 			output = "Non displayable";
-		else if (_double < 0 || _double > 127)
+		else if (_double < 0 || _double > 127 || _double != _double)
 			output = "Impossible";
 		else {
 			output += "'";
@@ -308,7 +319,8 @@ std::string			Converter::toInt(void)
 	
 	case FLOAT:
 		if (_float > std::numeric_limits<int>::max() ||
-			_float < std::numeric_limits<int>::min())
+			_float < std::numeric_limits<int>::min() ||
+			_float != _float)
 			output = "Impossible";
 		else {
 			iss_bis << static_cast<int>(_float);
@@ -318,7 +330,8 @@ std::string			Converter::toInt(void)
 	
 	case DOUBLE:
 		if (_double > std::numeric_limits<int>::max() ||
-			_double < std::numeric_limits<int>::min())
+			_double < std::numeric_limits<int>::min() ||
+			_double != _double)
 			output = "Impossible";
 		else {
 			iss_bis << static_cast<int>(_double);
@@ -339,37 +352,41 @@ std::string			Converter::toFloat(void)
 	std::string	output;
 	std::stringstream iss_bis;
 
+	
 	switch (_type)
 	{
 	case CHAR:
-		iss_bis << static_cast<float>(_c);
+		iss_bis << std::fixed << std::setprecision(1) << static_cast<float>(_c);
 		output += iss_bis.str();
-		output += ".0f";
+		output += "f";
+		// output += ".0f";
 		break;
 		
 	case INT:
-		iss_bis << static_cast<float>(_int);
+		iss_bis << std::fixed << std::setprecision(1) << static_cast<float>(_int);
 		output += iss_bis.str();
-		output += ".0f";
+		output += "f";
+		// output += ".0f";
 		break;
 	
 	case FLOAT:
-		iss_bis << _float;
+		iss_bis << std::fixed << _float;
 		output += iss_bis.str();
-		if (_float - std::floor(_float) == 0)
-			output += ".0";
+		// if (_float - std::floor(_float) == 0)
+		// 	output += ".0";
 		output += "f";
 		break;
 	
 	case DOUBLE:
-		if (_double > std::numeric_limits<float>::max() ||
-			_double < std::numeric_limits<float>::min())
-			output = "Impossible";
+		if (_double > std::numeric_limits<float>::max())
+			output = "+inff";
+		else if (_double < - std::numeric_limits<float>::max())
+			output = "-inff";
 		else {
-			iss_bis << static_cast<float>(_double);
+			iss_bis << std::fixed << static_cast<float>(_double);
 			output += iss_bis.str();
-			if (_double - std::floor(_double) == 0)
-				output += ".0";
+			// if (_double - std::floor(_double) == 0)
+			// 	output += ".0";
 			output += "f";
 		}
 		break;
@@ -389,29 +406,29 @@ std::string			Converter::toDouble(void)
 	switch (_type)
 	{
 	case CHAR:
-		iss_bis << static_cast<double>(_c);
+		iss_bis << std::fixed << std::setprecision(1) << static_cast<double>(_c);
 		output += iss_bis.str();
-		output += ".0";
+		// output += ".0";
 		break;
 		
 	case INT:
-		iss_bis << static_cast<double>(_int);
+		iss_bis << std::fixed << std::setprecision(1) << static_cast<double>(_int);
 		output += iss_bis.str();
-		output += ".0";
+		// output += ".0";
 		break;
 	
 	case FLOAT:
-		iss_bis << static_cast<double>(_float);
+		iss_bis << std::fixed << static_cast<double>(_float);
 		output += iss_bis.str();
-		if (_float - std::floor(_float) == 0)
-			output += ".0";
+		// if (_float - std::floor(_float) == 0)
+		// 	output += ".0";
 		break;
 	
 	case DOUBLE:
-		iss_bis << _double;
+		iss_bis << std::fixed << _double;
 		output += iss_bis.str();
-		if (_double - std::floor(_double) == 0)
-			output += ".0";
+		// if (_double - std::floor(_double) == 0)
+		// 	output += ".0";
 		break;
 	
 	default:
