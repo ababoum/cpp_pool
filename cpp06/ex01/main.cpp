@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 21:21:08 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/01 22:27:20 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/04 08:22:28 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ typedef unsigned long uintptr_t;
 
 struct Data
 {
-	int	value;
+	int			int_vat;
+	float		float_val;
+	double		double_val;
+	std::string	str_val;
 };
 
 uintptr_t serialize(Data* ptr)
@@ -38,15 +41,30 @@ Data* deserialize(uintptr_t raw)
 int main(void)
 {
 	Data	*test = new Data;
+	Data	*transformed;
 
-	test->value = 159;
-	std::cout << test->value << std::endl;
+	test->int_vat = 159;
+	test->float_val = 2.05f;
+	test->double_val = 42.42;
+	test->str_val = "salut";
+	std::cout << test->int_vat << std::endl;
+	std::cout << test->float_val << std::endl;
+	std::cout << test->double_val << std::endl;
+	std::cout << test->str_val << std::endl;
 
-	std::cout << deserialize(serialize(test)) << std::endl;
+	transformed = deserialize(serialize(test));
+	std::cout << transformed << std::endl;
+	std::cout << "=============================================" << std::endl;
 	std::cout << test << std::endl;
 
-	test->value = 247;
-	std::cout << test->value << std::endl;
+	transformed->int_vat = 247;
+	transformed->float_val = 5.02f;
+	transformed->double_val = 47.47;
+	transformed->str_val = "bye";
+	std::cout << transformed->int_vat << std::endl;
+	std::cout << transformed->float_val << std::endl;
+	std::cout << transformed->double_val << std::endl;
+	std::cout << transformed->str_val << std::endl;
 
 	delete test;
 	
