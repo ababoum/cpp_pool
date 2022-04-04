@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:51:28 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/23 19:05:51 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/04 16:04:48 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,32 @@
 #include <iostream>
 #include <list>
 // #include <array>
+#include <vector>
 #include <deque>
-#include <stack>
-#include <queue>
+
+class NotFoundException : public std::exception
+{
+	public:
+		virtual const char * what() const throw() {
+			return ("\e[41m The searched value has no occurence in the container \e[0m");
+		}		
+};
 
 template <typename T>
-int easyfind(T container, int n) {
+typename T::iterator easyfind(T & container, int n) {
 	
-	return (std::find(container.begin(), container.end(), n));
+	typename T::iterator pos = std::find(container.begin(), container.end(), n);
+	
+	if (pos == container.end())
+		throw NotFoundException();
+	return (pos);
+}
+
+template <typename T>
+void	displayIterator(T it, T end)
+{
+	if (it != end)
+		std::cout << "First occurence found: " << *it << std::endl;
+	else
+		std::cout << "No occurence found for given value" << std::endl;
 }
