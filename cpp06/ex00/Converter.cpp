@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:11:40 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/01 21:18:25 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/04 10:36:55 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -379,7 +379,7 @@ std::string			Converter::toFloat(void)
 	
 	case DOUBLE:
 		if (_double > std::numeric_limits<float>::max())
-			output = "+inff";
+			output = "inff";
 		else if (_double < - std::numeric_limits<float>::max())
 			output = "-inff";
 		else {
