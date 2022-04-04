@@ -6,7 +6,8 @@ NAME 		= iter
 
 SRCS		= ./main.cpp
 
-INCL		= ./iter.hpp
+INCL		= ./iter.hpp \
+				./Awesome.hpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

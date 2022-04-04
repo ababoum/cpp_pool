@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:25:51 by mababou           #+#    #+#             */
-/*   Updated: 2022/03/29 16:07:00 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/04 12:21:37 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,35 @@ class Array {
 					return ("\e[41m The selected index is out of range\e[0m");
 				}		
 		};
+
+		class NegativeSizeException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw() {
+					return ("\e[41m The input size is invalid \e[0m");
+				}		
+		};
 		
-		Array (void) {
-			this->_array = 0;
-			this->_size = 0;
-		};
+		Array (void): _array(NULL), _size(0) {}
 
-		Array (unsigned int n) {	
-			unsigned int	i;
-
-			this->_array = new T[n];
-			for (i = 0; i < n; i++) {
-				this->_array[i] = 0;
+		Array (unsigned int n)
+		{
+			if (n < 0)
+				throw NegativeSizeException();
+			else
+			{
+				_array = new T[n];
+				_size = n;
 			}
-			this->_size = n;
-		};
+		}
 
-		Array (Array & src) {			
+		Array (Array & src): _array(new T[src._size]), _size(src._size)
+		{
 			unsigned int i;
-
-			this->_array = new T[src._size];
+			
 			for (i = 0; i < src._size; i++) {
 				this->_array[i] = src._array[i];
 			}
-			this->_size = src._size;
 		};
 		
 		~Array()

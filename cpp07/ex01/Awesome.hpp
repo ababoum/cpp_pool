@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Awesome.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 15:25:51 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/04 11:56:53 by mababou          ###   ########.fr       */
+/*   Created: 2022/04/04 11:04:03 by mababou           #+#    #+#             */
+/*   Updated: 2022/04/04 11:10:15 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
-
-# include <iostream>
-# include <string>
-# include <iomanip>
-
-
-template< typename T >
-void	iter(T * lst, size_t size, void (*funct)(T const &)) {
-	size_t	i;
-
-	for (i = 0; i < size; i++) {
-		funct(lst[i]);
-	}
+class Awesome
+{
+	public:
+		Awesome( void ) : _n( 42 ) { return; }
+		int get( void ) const { return this->_n; }
+	private:
+		int _n;
 };
 
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
+{
+	o << rhs.get();
+	return o;
+}
 
-#endif /* ************************************************************ ITER_H */
+template< typename T >
+void	print(T const & x)
+{
+	std::cout << x << std::endl;
+	return;
+}

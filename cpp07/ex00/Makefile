@@ -6,7 +6,8 @@ NAME 		= whatever
 
 SRCS		= ./main.cpp
 
-INCL		= ./Whatever.hpp
+INCL		= ./Whatever.hpp \
+				./Awesome.hpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
