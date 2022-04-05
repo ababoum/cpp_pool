@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:12:03 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/05 12:14:04 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/05 16:40:50 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,18 @@ class Span
 		long	longestSpan(void) const;
 		void	fillSpan(unsigned int N);
 
+		template <typename T>
+		void	fillSpan(typename T::iterator beg, typename T::iterator end) {
+			typename T::iterator	it = beg;
+			
+			while (it != end) {
+				this->addNumber(*(it++));
+			}
+		}
+
 	private:
 		std::vector<int>	_list;
-		const unsigned int	_size;
+		const unsigned int	_capacity;
 		
 		Span();
 

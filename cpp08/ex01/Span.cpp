@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:12:03 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/05 12:14:43 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/05 16:41:13 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Span::Span(): _size(0)
+Span::Span(): _capacity(0)
 {
 }
 
-Span::Span(unsigned int N): _size(N)
+Span::Span(unsigned int N): _capacity(N)
 {
 }
 
-Span::Span( const Span & src ): _size(src._size)
+Span::Span( const Span & src ): _capacity(src._capacity)
 {
 	*this = src;
 }
@@ -66,7 +66,7 @@ std::ostream &			operator<<( std::ostream & o, Span const & i )
 
 void	Span::addNumber(int nb)
 {
-	if (_list.size() >= _size)
+	if (_list.size() >= _capacity)
 		throw FullSpanException();
 	else
 	{
@@ -110,6 +110,7 @@ void	Span::fillSpan(unsigned int N)
 		this->addNumber(rand());
 	}
 }
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
