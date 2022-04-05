@@ -1,11 +1,10 @@
 CXX			= @c++
 
-CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98
+CXXFLAGS	= -Wall -Werror -Wextra -g -std=c++98 -fsanitize=address
 
 NAME 		= mutant_stack
 
-SRCS		= ./main.cpp \
-				./MutantStack.cpp
+SRCS		= ./main.cpp
 
 INCL		= ./MutantStack.hpp
 

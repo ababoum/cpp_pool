@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:38:45 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/05 18:00:58 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/05 19:29:45 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# include <vector>
+# include <deque>
 # include <stack>
 
 template < typename T >
@@ -24,37 +24,34 @@ class MutantStack: public std::stack<T>
 	public:
 
 		MutantStack<T>() {}
-		MutantStack<T>( MutantStack const & src ) {*this = src;}
-		~MutantStack<T>();
+		MutantStack<T>( MutantStack const & src ) {this->c = src.c;}
+		~MutantStack<T>() {}
 
 		MutantStack<T> &		operator=( MutantStack const & rhs )
 		{
-			if ( this != &rhs )
-				this->_stack = rhs._stack;
+			this->c = rhs.c;
 			return *this;
 		};
+		
+		typedef typename std::deque<T>::iterator iterator;
 
-		bool	empty(void) const;
-		size_t	size(void) const;
+		bool	empty(void) const { return this->c.empty(); };
+		size_t	size(void) const { return this->c.size(); };
 		T	&	top(void) {
-			return (_stack.back());
+			return (this->c.back());
 		};
 		void	push(const T & value) {
-			_stack.push_back(value);
+			this->c.push_back(value);
 		};
-		void	pop(void);
+		void	pop(void) {this->c.pop_back(); };
 		
-		typename std::vector<T>::iterator	begin(void) {
-			return (_stack.begin());
+		iterator	begin(void) {
+			return (this->c.begin());
 		};
-		typename std::vector<T>::iterator	end(void) {
-			return (_stack.end());
+		iterator	end(void) {
+			return (this->c.end());
 		}
-		
-		typedef typename std::vector<T>::iterator iterator;
 
-	private:
-		std::vector<T>	_stack;
 };
 
 
