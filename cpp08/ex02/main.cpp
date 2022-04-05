@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 09:48:37 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/05 19:26:59 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/05 19:38:33 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int main(void)
 		MutantStack<int>::iterator it = mstack.begin();
 		std::cout << "beginning is: " << *it << std::endl;
 		MutantStack<int>::iterator ite = mstack.end();
-		std::cout << "end is: " << *ite << std::endl;
 		
 		++it;
 		std::cout << "second is: " << *it << std::endl;
@@ -50,6 +49,40 @@ int main(void)
 		std::cout << "size is: " << s.size() << std::endl;
 	}
 	std::cout << "\e[7m======================TEST 2======================\e[0m" << std::endl;
+	{
+		std::list<int>	mstack;
+		
+		mstack.push_back(5);
+		mstack.push_back(17);
+		std::cout << "top is: " << mstack.back() << std::endl;
+		mstack.pop_back();
+		std::cout << "size is: " << mstack.size() << std::endl;
+		mstack.push_back(3);
+		mstack.push_back(5);
+		mstack.push_back(737);
+		mstack.push_back(0);
+		
+		std::list<int>::iterator it = mstack.begin();
+		std::cout << "beginning is: " << *it << std::endl;
+		std::list<int>::iterator ite = mstack.end();
+		
+		++it;
+		std::cout << "second is: " << *it << std::endl;
+		--it;
+		std::cout << "beginning is: " << *it << std::endl;
+		
+		std::cout << "Entire list: "<< std::endl;
+		while (it != ite) {
+			std::cout << "> " << *it << std::endl;
+			++it;
+		}
+		
+		std::list<int> s(mstack);
+		std::cout << "Copied list: "<< std::endl;
+		std::cout << "top is: " << s.back() << std::endl;
+		std::cout << "size is: " << s.size() << std::endl;
+	}
+	std::cout << "\e[7m======================TEST 3======================\e[0m" << std::endl;
 	{
 		MutantStack<std::string>	str_stack;
 
@@ -84,6 +117,5 @@ int main(void)
 		}
 		
 	}
-	
 	return (0);
 }

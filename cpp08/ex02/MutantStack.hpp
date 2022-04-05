@@ -6,7 +6,7 @@
 /*   By: mababou <mababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:38:45 by mababou           #+#    #+#             */
-/*   Updated: 2022/04/05 19:29:45 by mababou          ###   ########.fr       */
+/*   Updated: 2022/04/05 19:33:06 by mababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <deque>
+# include <list>
 # include <stack>
 
 template < typename T >
